@@ -17,7 +17,7 @@ public class RegEx {
 	public final static char KLEENE = '*';
 	public final static char POSITIVA = '+';
 	public final static char PREGUNTA = '?';
-	public final static char EPSILON = (char)127;
+	public final static char EPSILON = 'e';
 
 	// --------------------------------------------------------------------------------
 	// Atributos
@@ -71,9 +71,52 @@ public class RegEx {
 	 * @param regex La representación en cadena de la expresión regular.
 	 */
 	public RegEx(String regex) throws Exception{
+		if( ! regex.endsWith("#") ) regex += "#";
+		regex = infix2postfix(  addConcats( regex ) );
+		Stack<RegEx> stack = new Stack<RegEx>();
+		for( int i = 0; i < regex.length(); i++ ){
+			char actual = regex.charAt(i);
+			//print(actual);
+			//print(i);
+			if( esSimbolo( actual ) ){
+				stack.push( new RegEx(actual) );
+			}
+			else if( actual == KLEENE ){
+				stack.push( new RegEx( stack.pop() ) );
+			}
+			else if( actual == POSITIVA ){
+				RegEx operando = stack.pop();
+				RegEx kleene = new RegEx( operando );
+				stack.push( new RegEx( CONCAT, operando, kleene ) );
+			}
+			else if( actual == PREGUNTA ){
+				RegEx epsilon = new RegEx(EPSILON);
+				RegEx operando = stack.pop();
+				stack.push( new RegEx( OR, operando, epsilon ) );
+			}
+			else{
+				RegEx right = stack.pop();
+				RegEx left = stack.pop();
+				stack.push( new RegEx(actual, left, right) );
+			}
+		}
 		
+		RegEx finale = stack.pop();
+		valor = finale.valor;
+		left = finale.left;
+		right = finale.right;
+		
+		print( inorden() );
 	}
 	
+	/**
+	 * Este método obtiene una expresión regular en notación común (infix) y la convierte en una
+	 * cadena en notación postfix usando el Shunting-yard algorithm de Dijkstra descrito en
+	 * <a href="http://en.wikipedia.org/wiki/Shunting-yard_algorithm"> Wikipedia </a>
+	 * @param infix La cadena en infix.
+	 * @return La cadena en notación postfix.
+	 * @throws Exception Si hay un paréntesis no cerrado (o no abierto, según el caso).
+	 */
 	private static String infix2postfix( String infix ) throws Exception{
 		Stack<Character> stack = new Stack<Character>();
 		String output = "";
@@ -107,7 +150,7 @@ public class RegEx {
 						if( jerarquias.get(new Character(actual)) <= jerarquias.get(new Character(stack.peek())) ){
 							// pop o2 off the stack, onto the output queue;
 							output += stack.pop();
-						}
+						} else flag = false;
 					} else flag = false;
 				}
 				// push o1 onto the stack.
@@ -142,15 +185,61 @@ public class RegEx {
 		return output;
 	}
 	
+	/**
+	 * Método que recorre el árbol sintáctico en inorden. Si el algoritmo está bien implementado, este
+	 * recorrido debería retornar algo muy similar a la cadena inicial (lo único que se pierde son los
+	 * paréntesis)
+	 * @return El recorrido en inorden del árbol sintáctico.
+	 */
+	private String inorden(){
+		
+		String inicial = "";
+		
+		if( this.left != null ) inicial += this.left.inorden();
+		inicial += this.valor;
+		if( this.right != null ) inicial += this.right.inorden();
+		
+		return inicial;
+	}
+	
+	private static String addConcats(String regex){
+		for( int i = 1; i < regex.length(); i++ ){
+			// Se concatena si hay un símbolo después de algo que no sea OR o (
+			// o si es un ) o símbolo antes de un (
+			if( ( (esSimbolo(regex.charAt(i)) || regex.charAt(i) == '(' ) && ( regex.charAt(i-1) != OR && regex.charAt(i-1) != '(' ) ) ||
+					(esSimbolo(regex.charAt(i-1)) || regex.charAt(i-1) == ')') && regex.charAt(i) == '('){
+				String pre = regex.substring(0,i);
+				String post = regex.substring(i);
+				regex = pre + CONCAT + post;
+				i++;
+			}
+		}
+		return regex;
+	}
+	
+	/**
+	 * Método que indica si un caracter es un operando de expresiones regulares.
+	 * @param caracter El caracter que se quiere
+	 * @return
+	 */
 	private static boolean esOperando( char caracter ){
 		return caracter == OR || caracter == CONCAT || caracter == KLEENE || caracter == POSITIVA ||
 		caracter == PREGUNTA;
 	}
 	
+	/**
+	 * Método que indica si un caracter es un símbolo perteneciente al lenguaje.
+	 * @param caracter El caracter que se quiere clasificar como símbolo o no símbolo.
+	 * @return true Si el caracter es un símbolo perteneciente al lenguaje. false Si no lo es.
+	 */
 	private static boolean esSimbolo( char caracter ){
-		return ! (esOperando(caracter) || caracter == '(' || caracter == ')' || caracter == EPSILON); 
+		return ! (esOperando(caracter) || caracter == '(' || caracter == ')' ); 
 	}
 	
+	/**
+	 * Método que genera un Hash que sirve para consultar las jerarquías de los operadores.
+	 * @return El hash de las jerarquías.
+	 */
 	private final static HashMap<Character,Integer> generarJerarquias(){
 		HashMap<Character,Integer> retorno = new HashMap<Character,Integer>();
 		retorno.put(OR, 0);
@@ -166,9 +255,14 @@ public class RegEx {
 	 */
 	public static void main(String[] args) {
 		String regex1 = "((a|b)*)*e((a|b)|e)*";
-		print( regex1 );
+		regex1 = "(a|b)*((a|(bb))*e)";
+		regex1 = "(a*|b*)c";
+		regex1 = "(b|b)*abb(a|b)*";
+		regex1 = "(a|b)*a(a|b)(a|b)";
+		print(addConcats(regex1));
 		try {
-			print( infix2postfix( regex1 ) );
+			//print( infix2postfix( regex1 ) );
+			new RegEx( regex1 );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
