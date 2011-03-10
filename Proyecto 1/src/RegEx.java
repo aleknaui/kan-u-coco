@@ -71,9 +71,16 @@ public class RegEx {
 	 * @param regex La representación en cadena de la expresión regular.
 	 */
 	public RegEx(String regex) throws Exception{
-		if( ! regex.endsWith("#") ) regex += "#";
+		//print( "Inicial: " + regex );
+		// Agrega las concatenaciones implícitas y convierte a postfix
 		regex = infix2postfix(  addConcats( regex ) );
+		// Quita las cerraduras redundantes
+		while( regex.contains("**") ) regex = regex.replace("**","*");
+		
+		//print( "Postfix: " + regex );
+		
 		Stack<RegEx> stack = new Stack<RegEx>();
+		
 		for( int i = 0; i < regex.length(); i++ ){
 			char actual = regex.charAt(i);
 			//print(actual);
@@ -101,13 +108,27 @@ public class RegEx {
 			}
 		}
 		
+		/* Obtiene la expresión regular y le concatena el #.
+		assert stack.size() == 1;
+		RegEx finale = stack.pop();
+		valor = CONCAT;
+		left = finale;
+		right = new RegEx('#');
+		//*/
+		
+		assert stack.size() == 1;
 		RegEx finale = stack.pop();
 		valor = finale.valor;
 		left = finale.left;
 		right = finale.right;
 		
-		print( inorden() );
+		//print( "Postorden: " + postorden() );
+		//print( "Inorden: " + inorden() );
 	}
+	
+	// --------------------------------------------------------------------------------
+	// Métodos
+	// --------------------------------------------------------------------------------
 	
 	/**
 	 * Este método obtiene una expresión regular en notación común (infix) y la convierte en una
@@ -139,14 +160,14 @@ public class RegEx {
 			// No hay funciones para este tipo de problemas
 			
 			// If the token is an operator, o1, then:
-			else if( esOperando(actual) ){
+			else if( esOperador(actual) ){
 				/* while there is an operator token, o2, at the top of the stack, and
 				either o1 is left-associative and its precedence is less than or equal to that of o2,
 				or o1 is right-associative and its precedence is less than that of o2, */
 				// En este caso no hay asociatividad por la derecha.
 				boolean flag = true;
 				while( stack.size() > 0 && flag ){
-					if(esOperando(stack.peek())){
+					if(esOperador(stack.peek())){
 						if( jerarquias.get(new Character(actual)) <= jerarquias.get(new Character(stack.peek())) ){
 							// pop o2 off the stack, onto the output queue;
 							output += stack.pop();
@@ -191,13 +212,32 @@ public class RegEx {
 	 * paréntesis)
 	 * @return El recorrido en inorden del árbol sintáctico.
 	 */
-	private String inorden(){
+	public String inorden(){
 		
 		String inicial = "";
 		
-		if( this.left != null ) inicial += this.left.inorden();
+		if( ! esSimbolo(valor) )inicial += "(";
+		if( this.left != null ) inicial += this.left.inorden();// else inicial+= "null";
 		inicial += this.valor;
-		if( this.right != null ) inicial += this.right.inorden();
+		if( this.right != null ) inicial += this.right.inorden();// else inicial+= "null";
+		if( ! esSimbolo(valor) )inicial += ")";
+		
+		return inicial;
+	}
+	
+	/**
+	 * Método que recorre el árbol sintáctico en postorden. Si el algoritmo está bien implementado,
+	 * este recorrido debería retornar algo muy similar a la cadena en notación postfix, pero con
+	 * las cerraduras + y ? reemplazadas por aa* y a|e respectivamente.
+	 * @return El recorrido en postorden del árbol sintáctico.
+	 */
+	public String postorden(){
+		
+		String inicial = "";
+		
+		if( this.left != null ) inicial += this.left.postorden();// else inicial+= "null";
+		if( this.right != null ) inicial += this.right.postorden();// else inicial+= "null";
+		inicial += this.valor;
 		
 		return inicial;
 	}
@@ -218,11 +258,11 @@ public class RegEx {
 	}
 	
 	/**
-	 * Método que indica si un caracter es un operando de expresiones regulares.
+	 * Método que indica si un caracter es un operador de expresiones regulares.
 	 * @param caracter El caracter que se quiere
 	 * @return
 	 */
-	private static boolean esOperando( char caracter ){
+	public static boolean esOperador( char caracter ){
 		return caracter == OR || caracter == CONCAT || caracter == KLEENE || caracter == POSITIVA ||
 		caracter == PREGUNTA;
 	}
@@ -232,15 +272,15 @@ public class RegEx {
 	 * @param caracter El caracter que se quiere clasificar como símbolo o no símbolo.
 	 * @return true Si el caracter es un símbolo perteneciente al lenguaje. false Si no lo es.
 	 */
-	private static boolean esSimbolo( char caracter ){
-		return ! (esOperando(caracter) || caracter == '(' || caracter == ')' ); 
+	public static boolean esSimbolo( char caracter ){
+		return ! (esOperador(caracter) || caracter == '(' || caracter == ')' ); 
 	}
 	
 	/**
 	 * Método que genera un Hash que sirve para consultar las jerarquías de los operadores.
 	 * @return El hash de las jerarquías.
 	 */
-	private final static HashMap<Character,Integer> generarJerarquias(){
+	private static HashMap<Character,Integer> generarJerarquias(){
 		HashMap<Character,Integer> retorno = new HashMap<Character,Integer>();
 		retorno.put(OR, 0);
 		retorno.put(PREGUNTA, 0);
@@ -250,22 +290,54 @@ public class RegEx {
 		return retorno;
 	}
 	
+	public char darValor(){
+		return valor;
+	}
+	
+	public RegEx darLeft(){
+		return left;
+	}
+	
+	public RegEx darRight(){
+		return right;
+	}
+	
 	/**
 	 * Esta clase main se corre para probar los métodos implementados.
 	 */
 	public static void main(String[] args) {
+		
+		/*
 		String regex1 = "((a|b)*)*e((a|b)|e)*";
-		regex1 = "(a|b)*((a|(bb))*e)";
+		//regex1 = "(a|b)*((a|(bb))*e)";
 		regex1 = "(a*|b*)c";
-		regex1 = "(b|b)*abb(a|b)*";
-		regex1 = "(a|b)*a(a|b)(a|b)";
-		print(addConcats(regex1));
+		//regex1 = "(b|b)*abb(a|b)*";
+		//regex1 = "(a|b)*a(a|b)(a|b)";
+		//regex1 = "b*ab?";
+		//regex1 = "ab*ab+a";
+		//print("Cadena Inicial: " + regex1);
+		//print("AddConcats: "+ addConcats(regex1));
 		try {
-			//print( infix2postfix( regex1 ) );
-			new RegEx( regex1 );
+			//print( infix2postfix( addConcats(regex1) ) );
+			RegEx regex = new RegEx( regex1 );			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		//*/
+		
+		try{
+			print( new AFN( new RegEx( "(b|b)*abb(a|b)*" ) ) );
+			//AFN a = new AFN('a');
+			//AFN b = new AFN('b');
+			//print( a );
+			//print( b );
+			//AFN aconcatb = new AFN( a, b, '.' );
+			//print( aconcatb );
+			//AFN aorb = new AFN( a, b, '|' );
+			//print( aorb );
+			//AFN akleen = new AFN( a, null, '*' );
+			//print( akleen );
+		}catch( Exception e ){ e.printStackTrace(); }
 	}
 	
 	public static void print( Object o ){
