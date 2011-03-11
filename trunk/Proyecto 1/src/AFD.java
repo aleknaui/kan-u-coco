@@ -96,7 +96,6 @@ public class AFD {
 			retorno += estados.indexOf( estado ) + ", ";
 		
 		retorno = retorno.substring(0,retorno.length()-2) + "\n";
-		retorno += "\n";
 		
 		retorno = retorno + "Transiciones:\n";
 		for( Transicion transicion : transiciones )
