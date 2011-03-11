@@ -118,7 +118,7 @@ public class RegEx {
 			}
 		}
 		
-		// Obtiene la expresión regular y le concatena el #.
+		/*// Obtiene la expresión regular y le concatena el #.
 		assert stack.size() == 1;
 		RegEx finale = stack.pop();
 		valor = CONCAT;
@@ -126,11 +126,11 @@ public class RegEx {
 		right = new RegEx('#');
 		//*/
 		
-		/*assert stack.size() == 1;
+		assert stack.size() == 1;
 		RegEx finale = stack.pop();
 		valor = finale.valor;
 		left = finale.left;
-		right = finale.right;*/
+		right = finale.right;
 		
 		//print( "Postorden: " + postorden() );
 		//print( "Inorden: " + inorden() );
@@ -378,7 +378,7 @@ public class RegEx {
 		///*
 		try{
 			AFN coso = new AFN( new RegEx( "(b|b)*abb(a|b)*" ) );
-			//print(coso);
+			print(coso);
 			
 			//AFD.print( coso.cerraduraEpsilon( new int[] {} ) );
 			//print("[");AFD.print( coso.mueve( new int[] {} , 'a' ) );print("]");

@@ -172,10 +172,10 @@ public class AFN {
 	 */
 	public AFN( RegEx regex ){
 		
-		// Le quita el .# del final
-		regex = regex.darLeft();
-		
 		alfabeto = regex.darAlfabeto();
+		
+		// Le quita el .# del final
+		// regex = regex.darLeft();
 		
 		//RegEx.print( "Valor: " + regex.darValor() );
 		if( RegEx.esSimbolo(regex.darValor()) ){
