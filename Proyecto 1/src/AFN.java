@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Clase que representa un Autómata Finito No Determinista. Un AFN
@@ -12,6 +13,8 @@ public class AFN {
 	// Atributos
 	// --------------------------------------------------------------------------------
 	
+	/** Alfabeto utilizado en el AFN */
+	private ArrayList<Character> alfabeto;
 	/** Lista de los estados que contiene el AFN */
 	private ArrayList<Estado> estados;
 	/** Lista de las transiciones entre los estados del AFN */
@@ -38,6 +41,12 @@ public class AFN {
 		
 	}
 	
+	/**
+	 * Implementa el algoritmo de Thompson para "operar" AFNs
+	 * @param afn1 El AFN que se encuentra a la izquierda en la Expresión Regular
+	 * @param afn2 El AFN que se encuentra a la derecha en la Expresión Regular. null Si simbolo == RegEx.KLEENE
+	 * @param simbolo El operador que determinará el algoritmo de Thompson a utilizar.s
+	 */
 	public AFN( AFN afn1, AFN afn2, char simbolo ){
 		assert simbolo == RegEx.OR || simbolo == RegEx.CONCAT ||
 		simbolo == RegEx.KLEENE;
@@ -133,7 +142,6 @@ public class AFN {
 				addEstado(estado);
 			assert estados.get(1).esAceptacion();
 			estados.get(1).setAsNoAceptacion();
-			int tamanioAfn1 = afn1.estados.size();
 			assert ! estados.get(1).esAceptacion() : "No se quitó estado de inicial al coso";
 			Estado inicial1 = estados.get(1);
 			
@@ -163,6 +171,12 @@ public class AFN {
 	 * @param regex La expresión regular de la que se origina el AFN
 	 */
 	public AFN( RegEx regex ){
+		
+		// Le quita el .# del final
+		regex = regex.darLeft();
+		
+		alfabeto = regex.darAlfabeto();
+		
 		//RegEx.print( "Valor: " + regex.darValor() );
 		if( RegEx.esSimbolo(regex.darValor()) ){
 			//RegEx.print( "Es símbolo" );
@@ -192,6 +206,18 @@ public class AFN {
 	// Métodos
 	// --------------------------------------------------------------------------------
 	
+	public ArrayList<Estado> darEstados(){
+		return estados;
+	}
+	
+	public ArrayList<Transicion> darTransiciones(){
+		return transiciones;
+	}
+	
+	/**
+	 * Retorna el estado inicial del AFN.
+	 * @return El estado inicial.
+	 */
 	public Estado darEstadoInicial(){
 		for( Estado estado : estados ){
 			if( estado.esInicial() ) return estado;
@@ -200,6 +226,10 @@ public class AFN {
 		return null;			// Retorna null por salud mental del compilador
 	}
 	
+	/**
+	 * Retorna el estado de aceptación del AFN
+	 * @return El estado de aceptación del AFN
+	 */
 	public Estado darEstadoAceptacion(){
 		
 		for( int i = estados.size()-1; i >= 0; i-- ){
@@ -210,7 +240,11 @@ public class AFN {
 		
 	}
 	
+	/**
+	 * Describe de forma escrita el AFN.
+	 */
 	public String toString(){
+		
 		String retorno = "Estados: ";
 		for( Estado estado : estados )
 			retorno = retorno + estados.indexOf(estado) + ", ";
@@ -221,30 +255,149 @@ public class AFN {
 		
 		retorno = retorno + "Transiciones:\n";
 		for( Transicion transicion : transiciones )
-			retorno = retorno + "\t T(" + estados.indexOf(transicion.darEstadoA()) + ", " + transicion.darSimbolo() + ") = " + estados.indexOf(transicion.darEstadoB()) + "\n";
+			retorno = retorno + "\t T(" + estados.indexOf(transicion.darEstadoA()) + ", '" + transicion.darSimbolo() + "') = " + estados.indexOf(transicion.darEstadoB()) + "\n";
 		
 		return retorno;
 	}
 	
+	/**
+	 * Agrega en el índice indicado a la lista de estados un nuevo estado
+	 * con los atributos indicados en los parámetros. Retorna el estado creado.
+	 * @param inicial true Si el estado es inicial para el Autómata
+	 * @param aceptacion true Si el estado es de aceptación para el Autómata
+	 * @param indice El índice en el que se desea colocar el estado en la lista de estados
+	 * del AFN. -1 Si se quiere colocar al final de la lista.
+	 * @return El estado creado.
+	 */
 	private Estado addEstado( boolean inicial, boolean aceptacion, int indice ){
 		if( indice == -1 ) indice = estados.size();
 		Estado nuevo = new Estado(inicial, aceptacion);
 		estados.add(indice, nuevo);
 		return nuevo;
 	}
-	
+
+	/**
+	 * Agrega al final de la lista de estados el estado indicado.
+	 * @param estado El estado a agregar a la lista.
+	 */
 	private void addEstado( Estado estado ){
 		estados.add( estado );
 	}
 	
+	/**
+	 * Agrega a la lista de transiciones una nueva
+	 * transición  con los parámetros indicados. La transición creada se retorna.
+	 * @param inicial El estado del que parte la transición
+	 * @param finale El estado hacia el cual se dirige la transición
+	 * @param transicion El símbolo que "causa" la transicións
+	 * @return La transición creada.
+	 */
 	private Transicion addTransicion( Estado inicial, Estado finale, char transicion ){
 		Transicion nueva = new Transicion( inicial, finale, transicion );
 		transiciones.add( nueva );
 		return nueva;
 	}
 	
+	/**
+	 * Agrega a la lista de transiciones la transición indicada.
+	 * @param transicion La transición que se quiere agregar a la lista.
+	 */
 	private void addTransicion( Transicion transicion ){
 		transiciones.add( transicion );
 	}
 
+	/**
+	 * Retorna la lista de los estados accesibles por medio
+	 * de transiciones-e desde T
+	 * @param T La lista de los estados iniciales
+	 * @return La lista de los estados accesibles por medio de transiciones-e desde T.
+	 */
+	public int[] cerraduraEpsilon( int[] T ){
+		ArrayList<Integer> cerradura = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		for( int i = 0; i < T.length; i++ ){
+			//Estado estado = estados.get(i);
+			stack.push(T[i]);
+			cerradura.add(T[i]);
+		}
+		while( ! stack.isEmpty() ){
+			Estado t = estados.get(stack.pop());
+			for( Transicion trans : transiciones ){
+				if( trans.darEstadoA() == t 
+						&& trans.darSimbolo() == RegEx.EPSILON 
+						&& ! cerradura.contains( estados.indexOf(trans.darEstadoB() ))){
+					cerradura.add(estados.indexOf(trans.darEstadoB()));
+					stack.push(estados.indexOf(trans.darEstadoB()));
+				}
+			}
+		}
+		
+		int[] retorno = new int[cerradura.size()];
+		for( int i = 0; i < cerradura.size(); i++ )
+			retorno[i] = cerradura.get(i);
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
+	}
+	
+	/**
+	 * Retorna los estados a los que se accede a partir de los estados indicados y el
+	 * símbolo indicado.
+	 * @param T Los estados de los que se parte.
+	 * @param simbolo El símbolo que inicia la transición.
+	 * @return Los estados que se acceden.
+	 */
+	public int[] mueve( int[] T, char simbolo ){
+		
+		ArrayList<Integer> mueve = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		for( int i = 0; i < T.length; i++ ){
+			stack.push(T[i]);
+		}
+		while( ! stack.isEmpty() ){
+			Estado t = estados.get(stack.pop());
+			for( Transicion trans : transiciones ){
+				if( trans.darEstadoA() == t 
+						&& trans.darSimbolo() == simbolo
+						&& ! mueve.contains( estados.indexOf(trans.darEstadoB() ))){
+					mueve.add(estados.indexOf(trans.darEstadoB()));
+				}
+			}
+		}
+		
+		int[] retorno = new int[mueve.size()];
+		for( int i = 0; i < mueve.size(); i++ )
+			retorno[i] = mueve.get(i);
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
+	}
+
+	/**
+	 * Retorna el alfabeto sobre el cual está construído el AFN
+	 * @return El alfabeto
+	 */
+	public ArrayList<Character> darAlfabeto() {
+		return alfabeto;
+	}
+	
 }

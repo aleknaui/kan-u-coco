@@ -23,12 +23,18 @@ public class RegEx {
 	// Atributos
 	// --------------------------------------------------------------------------------
 	
+	/** Símbolos utilizados en la Expresión Regular */
+	private ArrayList<Character> alfabeto;
 	/** La raíz del arbol */
 	private char valor;
 	/** El hijo izquierdo del arbol */
 	private RegEx left;
 	/** El hijo derecho del arbol */
 	private RegEx right;
+	
+	private boolean anulable;
+	private ArrayList<Integer> primeraPos;
+	private ArrayList<Integer> ultimaPos;
 	
 	// --------------------------------------------------------------------------------
 	// Constructores
@@ -71,6 +77,8 @@ public class RegEx {
 	 * @param regex La representación en cadena de la expresión regular.
 	 */
 	public RegEx(String regex) throws Exception{
+		
+		alfabeto = new ArrayList<Character>();
 		//print( "Inicial: " + regex );
 		// Agrega las concatenaciones implícitas y convierte a postfix
 		regex = infix2postfix(  addConcats( regex ) );
@@ -87,6 +95,8 @@ public class RegEx {
 			//print(i);
 			if( esSimbolo( actual ) ){
 				stack.push( new RegEx(actual) );
+				if( ! alfabeto.contains( actual ) ) alfabeto.add(actual);
+				
 			}
 			else if( actual == KLEENE ){
 				stack.push( new RegEx( stack.pop() ) );
@@ -108,7 +118,7 @@ public class RegEx {
 			}
 		}
 		
-		/* Obtiene la expresión regular y le concatena el #.
+		// Obtiene la expresión regular y le concatena el #.
 		assert stack.size() == 1;
 		RegEx finale = stack.pop();
 		valor = CONCAT;
@@ -116,11 +126,11 @@ public class RegEx {
 		right = new RegEx('#');
 		//*/
 		
-		assert stack.size() == 1;
+		/*assert stack.size() == 1;
 		RegEx finale = stack.pop();
 		valor = finale.valor;
 		left = finale.left;
-		right = finale.right;
+		right = finale.right;*/
 		
 		//print( "Postorden: " + postorden() );
 		//print( "Inorden: " + inorden() );
@@ -204,6 +214,31 @@ public class RegEx {
 			output += stack.pop();
 		}
 		return output;
+	}
+	
+	
+	
+	/**
+	 * Indica si la expresión se puede reducir a la cadena vacía.
+	 * @return El cálculo recursivo de la función anulable.
+	 */
+	public boolean anulable(){
+		if( esSimbolo(valor) ) return false;
+		else if( valor == EPSILON ) return true;
+		else if( valor == OR ) return left.anulable() || right.anulable();
+		else if( valor == CONCAT ) return left.anulable() && right.anulable();
+		else{
+			assert valor == KLEENE;
+			return true;
+		}
+	}
+	
+	/**
+	 * Retorna el alfabeto del cual se construye la Expresión Regular.
+	 * @return El alfabeto.
+	 */
+	public ArrayList<Character> darAlfabeto(){
+		return alfabeto;
 	}
 	
 	/**
@@ -290,14 +325,28 @@ public class RegEx {
 		return retorno;
 	}
 	
+	/**
+	 * Indica el valor que se encuentra en la raíz de la RegEx
+	 * @return El valor de la raíz del objeto.
+	 */
 	public char darValor(){
 		return valor;
 	}
 	
+	/**
+	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
+	 * izquierdo de esta expresión regular.
+	 * @return El hijo izquierdo de esta expresión regular.
+	 */
 	public RegEx darLeft(){
 		return left;
 	}
 	
+	/**
+	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
+	 * derecho de esta expresión regular.
+	 * @return El hijo derecho de esta expresión regular.
+	 */
 	public RegEx darRight(){
 		return right;
 	}
@@ -319,25 +368,28 @@ public class RegEx {
 		//print("AddConcats: "+ addConcats(regex1));
 		try {
 			//print( infix2postfix( addConcats(regex1) ) );
-			RegEx regex = new RegEx( regex1 );			
+			RegEx regex = new RegEx( regex1 );
+			print( regex.alfabeto.toString() );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//*/
 		
+		///*
 		try{
-			print( new AFN( new RegEx( "(b|b)*abb(a|b)*" ) ) );
-			//AFN a = new AFN('a');
-			//AFN b = new AFN('b');
-			//print( a );
-			//print( b );
-			//AFN aconcatb = new AFN( a, b, '.' );
-			//print( aconcatb );
-			//AFN aorb = new AFN( a, b, '|' );
-			//print( aorb );
-			//AFN akleen = new AFN( a, null, '*' );
-			//print( akleen );
+			AFN coso = new AFN( new RegEx( "(b|b)*abb(a|b)*" ) );
+			//print(coso);
+			
+			//AFD.print( coso.cerraduraEpsilon( new int[] {} ) );
+			//print("[");AFD.print( coso.mueve( new int[] {} , 'a' ) );print("]");
+			
+			//print( new int[] {0,1,2,4,7} == new int[]{0,1,2,4,7} );
+			
+			AFD otro = new AFD(coso);
+			print(otro);
+			
 		}catch( Exception e ){ e.printStackTrace(); }
+		//*/
 	}
 	
 	public static void print( Object o ){
