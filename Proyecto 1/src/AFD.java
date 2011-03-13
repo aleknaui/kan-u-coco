@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Clase que representa un Autómata Finito Determinista.
@@ -66,6 +67,56 @@ public class AFD {
 			}
 		}
 		
+	}
+	
+	public AFD( RegEx regex ){
+		
+		alfabeto = regex.darAlfabeto();
+		estados = new ArrayList<Estado>();
+		transiciones = new ArrayList<Transicion>();
+		
+		regex = regex.sintacticoCompleto();
+		
+		HashMap<Integer, ArrayList<Integer>> siguientePos = regex.siguientePos();
+		ArrayList<Character> hojas = regex.hojas();
+		ArrayList<ArrayList<Integer>> Sd = new ArrayList<ArrayList<Integer>>();
+		Sd.add( regex.darPrimeraPos() );
+		estados.add( new Estado( true, false ) );
+		
+		for( int i = 0; i < Sd.size(); i++ ){
+			Estado actual = estados.get(i);
+			ArrayList<Integer> T = Sd.get(i);
+			for( char a : alfabeto ){
+				ArrayList<Integer> U = new ArrayList<Integer>();
+				for( int j : T ){
+					if( hojas.get(j) == a ){
+						for( int sig : siguientePos.get(j) ){
+							if( ! U.contains(sig) )
+								U.add(sig);
+						}
+					}
+				}
+			int[] ordenado = toArray(U);
+			U = new ArrayList<Integer>();
+			for( int j = 0; j < ordenado.length; j++ ){
+				U.add( ordenado[j] );
+			}
+			if( U.size() > 0 ){
+				if( ! Sd.contains(U) ){
+					boolean esFinal = false;
+					if( U.contains( hojas.size()-1 ) )
+						esFinal = true;
+					Estado nuevo = new Estado( false, esFinal );
+					transiciones.add( new Transicion( actual, nuevo, a ) );
+					estados.add( nuevo );
+					Sd.add(U);
+				} else{
+					Estado nuevo = estados.get( Sd.indexOf( U ) );
+					transiciones.add( new Transicion( actual, nuevo, a ) );
+				}
+			}
+			}
+		}
 	}
 	
 	public static void print( int[] a ){
@@ -149,6 +200,25 @@ public class AFD {
 			if( arr[i] == in ) return true;
 		
 		return false;
+	}
+	
+	private int[] toArray( ArrayList<Integer> alist ){
+		int[] retorno = new int[alist.size()];
+		for( int i = 0; i < alist.size(); i++ ){
+			retorno[i] = alist.get(i);
+		}
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
 	}
 	
 }
