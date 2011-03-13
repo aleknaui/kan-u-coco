@@ -35,7 +35,6 @@ public class RegEx {
 	private boolean anulable;
 	private ArrayList<Integer> primeraPos = new ArrayList<Integer>();
 	private ArrayList<Integer> ultimaPos = new ArrayList<Integer>();
-	private HashMap<Integer, Character> hojas = new HashMap<Integer, Character>();
 	
 	// --------------------------------------------------------------------------------
 	// Constructores
@@ -44,10 +43,15 @@ public class RegEx {
 	/**
 	 * Caso base en el que la RegEx consta de un solo símbolo
 	 */
-	public RegEx(char simbolo){
+	public RegEx(char simbolo, int numHoja){
 		valor = simbolo;
 		left = null;
 		right = null;
+		anulable = valor == EPSILON ? true : false;
+		if( ! ( valor == EPSILON ) ){
+			primeraPos.add( numHoja );
+			ultimaPos.add( numHoja );
+		}
 	}
 	
 	/**
@@ -60,6 +64,41 @@ public class RegEx {
 		this.valor = simbolo;
 		this.left = left;
 		this.right = right;
+		switch(simbolo){
+		case CONCAT:
+			this.anulable = this.left.anulable && this.right.anulable;
+			
+			if( this.left.anulable ){
+				for( int i : this.left.primeraPos )
+					this.primeraPos.add(i);
+				for( int i : this.right.primeraPos )
+					this.primeraPos.add(i);
+			} else this.primeraPos = this.left.primeraPos;
+			
+			if( this.right.anulable ){
+				for( int i : this.left.ultimaPos )
+					this.ultimaPos.add(i);
+				for( int i : this.right.ultimaPos )
+					this.ultimaPos.add(i);
+			} else this.ultimaPos = this.right.ultimaPos;
+			
+			break;
+		case OR:
+			
+			this.anulable = this.left.anulable || this.right.anulable;
+			
+			for( int i : this.left.primeraPos )
+				this.primeraPos.add(i);
+			for( int i : this.right.primeraPos )
+				this.primeraPos.add(i);
+			
+			for( int i : this.left.ultimaPos )
+				this.ultimaPos.add(i);
+			for( int i : this.right.ultimaPos )
+				this.ultimaPos.add(i);
+			
+			break;
+		}
 	}
 	
 	/**
@@ -71,6 +110,10 @@ public class RegEx {
 		valor = KLEENE;
 		this.left = kleene;
 		this.right = null;
+		
+		this.anulable = true;
+		this.primeraPos = this.left.primeraPos;
+		this.ultimaPos = this.left.ultimaPos;
 	}
 	
 	/**
@@ -93,112 +136,36 @@ public class RegEx {
 		
 		for( int i = 0; i < regex.length(); i++ ){
 			char actual = regex.charAt(i);
+			//print(contador + "," + actual);
 			//print(actual);
 			//print(i);
 			if( esSimbolo( actual ) ){
-				RegEx nueva = new RegEx(actual);
+				RegEx nueva = new RegEx(actual, contador); contador++;
 				if( ! alfabeto.contains( actual ) ) alfabeto.add(actual);
-				if( actual != EPSILON ){
-					nueva.anulable = false;
-					nueva.primeraPos.add( contador );
-					nueva.ultimaPos.add( contador ); 
-					hojas.put(contador, nueva.valor);
-					contador++;
-				}
-				else{
-					anulable = true;
-					assert primeraPos.isEmpty() && ultimaPos.isEmpty();
-				}
-					
 				stack.push( nueva );
 			}
 			else if( actual == KLEENE ){
 				RegEx nueva = new RegEx( stack.pop() );
-				
-				nueva.anulable = true;
-				nueva.primeraPos = nueva.left.primeraPos;
-				nueva.ultimaPos = nueva.left.ultimaPos;
 				
 				stack.push( nueva );
 			}
 			else if( actual == POSITIVA ){
 				RegEx operando = stack.pop();
 				RegEx kleene = new RegEx( operando );
-				
-				kleene.anulable = true;
-				kleene.primeraPos = kleene.left.primeraPos;
-				kleene.ultimaPos = kleene.left.ultimaPos;
-				
 				RegEx nueva = new RegEx( CONCAT, operando, kleene );
-				nueva.anulable = nueva.left.anulable && nueva.right.anulable;
-				if( nueva.left.anulable ){
-					for( int j : nueva.left.primeraPos )
-						nueva.primeraPos.add(j);
-					for( int j : nueva.right.primeraPos )
-						nueva.primeraPos.add(j);
-				}else{
-					nueva.primeraPos = nueva.left.primeraPos;
-				}
-				if( nueva.right.anulable ){
-					for( int j : nueva.left.ultimaPos )
-						nueva.ultimaPos.add(j);
-					for( int j : nueva.right.ultimaPos )
-						nueva.ultimaPos.add(j);
-				}else{
-					nueva.primeraPos = nueva.left.primeraPos;
-				}
 				
 				stack.push( nueva );
 			}
 			else if( actual == PREGUNTA ){
-				RegEx epsilon = new RegEx(EPSILON);
-				epsilon.anulable = true;
+				RegEx epsilon = new RegEx(EPSILON, contador); contador++;
 				RegEx operando = stack.pop();
 				RegEx nueva = new RegEx( OR, operando, epsilon );
-				nueva.anulable = nueva.left.anulable || nueva.right.anulable;
-				for( int j : nueva.left.primeraPos )
-					nueva.primeraPos.add(j);
-				for( int j : nueva.right.primeraPos )
-					nueva.primeraPos.add(j);
-				for( int j : nueva.left.ultimaPos )
-					nueva.ultimaPos.add(j);
-				for( int j : nueva.right.ultimaPos )
-					nueva.ultimaPos.add(j);
 				stack.push( nueva );
 			}
 			else{
 				RegEx right = stack.pop();
 				RegEx left = stack.pop();
 				RegEx nueva = new RegEx(actual, left, right);
-				if( actual == OR ){
-					nueva.anulable = nueva.left.anulable || nueva.right.anulable;
-					for( int j : nueva.left.primeraPos )
-						nueva.primeraPos.add(j);
-					for( int j : nueva.right.primeraPos )
-						nueva.primeraPos.add(j);
-					for( int j : nueva.left.ultimaPos )
-						nueva.ultimaPos.add(j);
-					for( int j : nueva.right.ultimaPos )
-						nueva.ultimaPos.add(j);
-				}else{
-					nueva.anulable = nueva.left.anulable && nueva.right.anulable;
-					if( nueva.left.anulable ){
-						for( int j : nueva.left.primeraPos )
-							nueva.primeraPos.add(j);
-						for( int j : nueva.right.primeraPos )
-							nueva.primeraPos.add(j);
-					}else{
-						nueva.primeraPos = nueva.left.primeraPos;
-					}
-					if( nueva.right.anulable ){
-						for( int j : nueva.left.ultimaPos )
-							nueva.ultimaPos.add(j);
-						for( int j : nueva.right.ultimaPos )
-							nueva.ultimaPos.add(j);
-					}else{
-						nueva.primeraPos = nueva.left.primeraPos;
-					}
-				}
 				stack.push( nueva );
 			}
 		}
@@ -216,6 +183,9 @@ public class RegEx {
 		valor = finale.valor;
 		left = finale.left;
 		right = finale.right;
+		anulable = finale.anulable;
+		primeraPos = finale.primeraPos;
+		ultimaPos = finale.ultimaPos;
 		
 		//print( "Postorden: " + postorden() );
 		//print( "Inorden: " + inorden() );
@@ -301,23 +271,6 @@ public class RegEx {
 		return output;
 	}
 	
-	
-	
-	/**
-	 * Indica si la expresión se puede reducir a la cadena vacía.
-	 * @return El cálculo recursivo de la función anulable.
-	 */
-	public boolean anulable(){
-		if( esSimbolo(valor) ) return false;
-		else if( valor == EPSILON ) return true;
-		else if( valor == OR ) return left.anulable() || right.anulable();
-		else if( valor == CONCAT ) return left.anulable() && right.anulable();
-		else{
-			assert valor == KLEENE;
-			return true;
-		}
-	}
-	
 	/**
 	 * Retorna el alfabeto del cual se construye la Expresión Regular.
 	 * @return El alfabeto.
@@ -374,6 +327,7 @@ public class RegEx {
 				i++;
 			}
 		}
+		while( regex.contains("..") ) regex = regex.replace("..",".");
 		return regex;
 	}
 	
@@ -462,33 +416,102 @@ public class RegEx {
 		
 		///*
 		try{
-			RegEx regex = new RegEx("(b|b)*abb(a|b)*");
+			RegEx regex = new RegEx("(b|b)*.a.b.b.(a|b)*");
 			//print( regex.inorden() );
-			AFN coso = new AFN( regex );
-			print(coso);
+			//for( char c : regex.hojas() ){
+			//	print(c);
+			//}
+			//AFN coso = new AFN( regex );
+			//print(coso);
 			
 			//AFD.print( coso.cerraduraEpsilon( new int[] {} ) );
 			//print("[");AFD.print( coso.mueve( new int[] {} , 'a' ) );print("]");
 			
 			//print( new int[] {0,1,2,4,7} == new int[]{0,1,2,4,7} );
 			
-			AFD otro = new AFD(coso);
+			AFD otro = new AFD(regex);
 			print(otro);
 			
 		}catch( Exception e ){ e.printStackTrace(); }
 		//*/
 	}
 	
+	public ArrayList<Character> hojas(){
+		ArrayList<Character> arreglo = new ArrayList<Character>();
+		
+		if( left == null && right == null )
+			arreglo.add(valor);
+		else{
+			for( char c : left.hojas() )
+				arreglo.add( c );
+			if( right != null )
+				for( char c : right.hojas() )
+					arreglo.add( c );
+		}
+		
+		return arreglo;
+	}
+	
+	private ArrayList<RegEx> postOrden(){
+		ArrayList<RegEx> postOrden = new ArrayList<RegEx>();
+		
+		if( left != null ){
+			for( RegEx r : left.postOrden() )
+				postOrden.add(r);
+				//postOrden.add( left.postOrden().get(0) );
+		}
+		if( right != null ){
+			for( RegEx r : right.postOrden() )
+				postOrden.add( r );
+		}
+		postOrden.add( this );
+
+		return postOrden;
+	}
+	
+	public HashMap<Integer, ArrayList<Integer>> siguientePos(){
+		ArrayList<RegEx> postOrden = postOrden();
+		
+		HashMap<Integer, ArrayList<Integer>> retorno = new HashMap<Integer, ArrayList<Integer>>();
+		for( int i = 0; i < hojas().size(); i++ )
+			retorno.put(i, new ArrayList<Integer>());
+		for( RegEx r : postOrden ){
+			if( r.valor == CONCAT ){
+				for( int prim : r.left.ultimaPos ){
+					for( int ult : r.right.primeraPos ){
+						if( ! retorno.get(prim).contains(ult) )
+							retorno.get(prim).add(ult);
+					}
+				}
+			} else if( r.valor == KLEENE ){
+				for( int prim : r.left.ultimaPos ){
+					for( int ult : r.left.primeraPos ){
+						if( ! retorno.get(prim).contains(ult) )
+							retorno.get(prim).add(ult);
+					}
+				}
+			}
+		}
+		return retorno;
+	}
+	
+	public ArrayList<Integer> darPrimeraPos(){
+		return primeraPos;
+	}
+	
+	public ArrayList<Integer> darUltimaPos(){
+		return ultimaPos;
+	}
+	
 	public static void print( Object o ){
 		System.out.println(o);
 	}
-	
-	public RegEx sintacticoCompleto(){
-		RegEx temp = new RegEx( CONCAT, this, new RegEx('#') );
-		temp.hojas = this.hojas;
-		temp.alfabeto = this.alfabeto;
-		//TODO definir anulable, primerapos y ultimapos
-		return temp;
-	}
 
+	public RegEx sintacticoCompleto() {
+		return new RegEx( CONCAT, this, new RegEx('#', hojas().size()) );
+	}
+	
+	public String toString(){
+		return inorden();
+	}
 }
