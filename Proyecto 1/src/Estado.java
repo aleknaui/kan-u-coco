@@ -78,13 +78,4 @@ public class Estado {
 		return esAceptacion;
 	}
 	
-	/*
-	public int getId(){
-		return this.hashCode();
-	}
-	/*
-	public boolean equals( Estado estado ){
-		return id == estado.id;
-	}*/
-	
 }

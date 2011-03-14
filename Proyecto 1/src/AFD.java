@@ -69,6 +69,10 @@ public class AFD {
 		
 	}
 	
+	/**
+	 * Construye un AFD directamente a partir de la expresión regular indicada.
+	 * @param regex Un AFD que reconoce la expresión regular indicada.
+	 */
 	public AFD( RegEx regex ){
 		
 		alfabeto = regex.darAlfabeto();
@@ -119,19 +123,139 @@ public class AFD {
 		}
 	}
 	
-	public static void print( int[] a ){
-		for( int i = 0; i < a.length; i++ )
-			System.out.print( a[i] + ", " );
-		System.out.print("\n");
-	}
-	
 	// --------------------------------------------------------------------------------
 	// Métodos
 	// --------------------------------------------------------------------------------
 	
 	/**
-	 * Describe de forma escrita el AFN.
+	 * Realiza la simulación del AFD e indica si la cadena ingresada concuerda con la expresión regular representada.
+	 * @param w La cadena de la que se quiere determinar si representa la regex.
+	 * @return true Si la cadena es aceptada por el AFD. false Si no lo es.
 	 */
+	public boolean simular( String w ){
+		
+		Estado S = darEstadoInicial();
+		for( int i = 0; i < w.length(); i++ ){
+			char c = w.charAt(i);
+			S = transicion( S, c );
+			if( S == null ) return false;
+		}
+		return darEstadosAceptacion().contains( S );
+	}
+
+	/**
+	 * Retorna el estado inicial del AFD.
+	 * @return El estado inicial del AFD.
+	 */
+	public Estado darEstadoInicial(){
+		for( Estado estado : estados )
+			if( estado.esInicial() )
+				return estado;
+		assert false == true;
+		return null;
+	}
+	
+	/**
+	 * Retorna los estados de aceptación del AFD
+	 * @return Los estados que indican que la cadena w introducida hasta el momento
+	 * pertenece a la expresión regular.
+	 */
+	public ArrayList<Estado> darEstadosAceptacion(){
+		ArrayList<Estado> retorno = new ArrayList<Estado>();
+		
+		for( Estado estado : estados )
+			if( estado.esAceptacion() )
+				retorno.add( estado );
+		return retorno;
+	}
+	
+	/**
+	 * Realiza la operación de transición de el estado s con el símbolo c
+	 * @param s El estado del que se quiere partir.
+	 * @param c El símbolo que dirigirá la transición.
+	 * @return El estado al que se dirige la transición.
+	 */
+	private Estado transicion( Estado s, char c ){
+		
+		for( Transicion trans : transiciones){
+			if( trans.darEstadoA() == s ){
+				if( trans.darSimbolo() == c )
+					return trans.darEstadoB();
+			}
+		}
+		return null;
+		
+	}
+
+	/**
+	 * Método que indica si el arreglo de enteros indicado se encuentra en el ArrayList indicado. 
+	 * @param array El arreglo de enteros.
+	 * @param list El ArrayList que podría o no contener a array
+	 * @return El índice en el que se encuentra array dentro de list. -1 Si no se encuentra.
+	 */
+	private int yaExisteEstado( int[] array, ArrayList<int[]> list ){
+		for( int i = 0; i < list.size(); i++ ){
+			
+			int[] ar = list.get(i);
+			
+			if( iguales( array, ar ) ) return i;
+			
+		}
+			
+		return -1;
+	}
+	
+	/**
+	 * Método que equivale a int[].equals( int[] )
+	 * @param a1 El primer int[] a comparar.
+	 * @param a2 El segundo int[] a comparar.
+	 * @return true Si sus elementos son iguales. false Si no concuerdan en todos sus elementos.
+	 */
+	private boolean iguales( int[] a1, int[] a2 ){
+		if( a1.length != a2.length ) return false;
+		for( int i = 0; i < a1.length; i++ ){
+			if( a1[i] != a2[i] ) return false;
+		} return true;
+	}
+	
+	/**
+	 * Método que equivale a int[].contains( int )
+	 * @param arr El arreglo de enteros que podría contener a in
+	 * @param in El número que se quiere buscar en el arreglo.
+	 * @return true Si el arreglo contiene al número. false Si no lo contiene.
+	 */
+	private boolean contains( int[] arr, int in ){
+		for( int i = 0; i < arr.length; i++ )
+			if( arr[i] == in ) return true;
+		
+		return false;
+	}
+	
+	/**
+	 * Convierte un ArrayList de enteros a un arreglo de enteros y ordena sus valores.
+	 * @param alist El ArrayList que se quiere convertir a int[]
+	 * @return El int[] ordenado con los mismos valores que alist.
+	 */
+	private int[] toArray( ArrayList<Integer> alist ){
+		int[] retorno = new int[alist.size()];
+		for( int i = 0; i < alist.size(); i++ ){
+			retorno[i] = alist.get(i);
+		}
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
+	}
+	
+	@Override
 	public String toString(){
 		
 		String retorno = "Estados: ";
@@ -154,71 +278,4 @@ public class AFD {
 		
 		return retorno;
 	}
-	
-	/**
-	 * Retorna el estado inicial del AFD.
-	 * @return El estado inicial del AFD.
-	 */
-	public Estado darEstadoInicial(){
-		for( Estado estado : estados )
-			if( estado.esInicial() )
-				return estado;
-		assert false == true;
-		return null;
-	}
-	
-	public ArrayList<Estado> darEstadosAceptacion(){
-		ArrayList<Estado> retorno = new ArrayList<Estado>();
-		
-		for( Estado estado : estados )
-			if( estado.esAceptacion() )
-				retorno.add( estado );
-		return retorno;
-	}
-	
-	public int yaExisteEstado( int[] array, ArrayList<int[]> list ){
-		for( int i = 0; i < list.size(); i++ ){
-			
-			int[] ar = list.get(i);
-			
-			if( iguales( array, ar ) ) return i;
-			
-		}
-			
-		return -1;
-	}
-	
-	private boolean iguales( int[] a1, int[] a2 ){
-		if( a1.length != a2.length ) return false;
-		for( int i = 0; i < a1.length; i++ ){
-			if( a1[i] != a2[i] ) return false;
-		} return true;
-	}
-	
-	public static boolean contains( int[] arr, int in ){
-		for( int i = 0; i < arr.length; i++ )
-			if( arr[i] == in ) return true;
-		
-		return false;
-	}
-	
-	private int[] toArray( ArrayList<Integer> alist ){
-		int[] retorno = new int[alist.size()];
-		for( int i = 0; i < alist.size(); i++ ){
-			retorno[i] = alist.get(i);
-		}
-		
-		for (int i = 0; i < retorno.length; i++) {
-	         for (int j = i; j > 0; j--) {
-	            if (retorno[j-1] > retorno[j]) {
-	               int swap = retorno[j];
-	               retorno[j] = retorno[j-1];
-	               retorno[j-1] = swap;
-	            }
-	         }
-	      }
-		
-		return retorno;
-	}
-	
 }

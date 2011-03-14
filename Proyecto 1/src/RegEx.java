@@ -4,6 +4,7 @@ import java.util.Stack;
 /**
  * Esta clase representa una expresión regular construída a partir de una cadena.
  * La expresión regular se modela como un árbol sintáctico.
+ * 
  * @author AleKnaui
  */
 public class RegEx {
@@ -32,8 +33,11 @@ public class RegEx {
 	/** El hijo derecho del arbol */
 	private RegEx right;
 	
+	/** Este valor indica la posibilidad de que esta expresión regular pueda ser el valor EPSILON */
 	private boolean anulable;
+	/** Lista de los posibles símbolos que pueden iniciar la expresión regular */
 	private ArrayList<Integer> primeraPos = new ArrayList<Integer>();
+	/** Lista de los posibles símbolos que pueden finalizar la expresión regular */
 	private ArrayList<Integer> ultimaPos = new ArrayList<Integer>();
 	
 	// --------------------------------------------------------------------------------
@@ -203,7 +207,7 @@ public class RegEx {
 	 * @return La cadena en notación postfix.
 	 * @throws Exception Si hay un paréntesis no cerrado (o no abierto, según el caso).
 	 */
-	private static String infix2postfix( String infix ) throws Exception{
+	private String infix2postfix( String infix ) throws Exception{
 		Stack<Character> stack = new Stack<Character>();
 		String output = "";
 		HashMap<Character,Integer> jerarquias = generarJerarquias();
@@ -272,6 +276,50 @@ public class RegEx {
 	}
 	
 	/**
+	 * Deduce las posiciones de la operación concat en la cadena de entrada para la regex.
+	 * No importa si la cadena ya tenía todos, algunos o ningún operador de concatenación.
+	 * @param regex La cadena que representa la expresión regular.
+	 * @return La cadena que representa la expresión regular ya con sus concatenaciones explícitas.
+	 */
+	private String addConcats(String regex){
+		for( int i = 1; i < regex.length(); i++ ){
+			// Se concatena si hay un símbolo después de algo que no sea OR o (
+			// o si es un ) o símbolo antes de un (
+			if( ( (esSimbolo(regex.charAt(i)) || regex.charAt(i) == '(' ) && ( regex.charAt(i-1) != OR && regex.charAt(i-1) != '(' ) ) ||
+					(esSimbolo(regex.charAt(i-1)) || regex.charAt(i-1) == ')') && regex.charAt(i) == '('){
+				String pre = regex.substring(0,i);
+				String post = regex.substring(i);
+				regex = pre + CONCAT + post;
+				i++;
+			}
+		}
+		while( regex.contains("..") ) regex = regex.replace("..",".");
+		return regex;
+	}
+
+	/**
+	 * Método que genera un Hash que sirve para consultar las jerarquías de los operadores.
+	 * @return El hash de las jerarquías.
+	 */
+	private HashMap<Character,Integer> generarJerarquias(){
+		HashMap<Character,Integer> retorno = new HashMap<Character,Integer>();
+		retorno.put(OR, 0);
+		retorno.put(PREGUNTA, 0);
+		retorno.put(CONCAT, 1);
+		retorno.put(KLEENE, 2);
+		retorno.put(POSITIVA, 2);
+		return retorno;
+	}
+
+	/**
+	 * Método que retorna el árbol sintáctico de la expresión regular regex.#
+	 * @return El árbol sintáctico de la expresión regular
+	 */
+	public RegEx sintacticoCompleto() {
+		return new RegEx( CONCAT, this, new RegEx('#', hojas().size()) );
+	}
+
+	/**
 	 * Retorna el alfabeto del cual se construye la Expresión Regular.
 	 * @return El alfabeto.
 	 */
@@ -279,6 +327,92 @@ public class RegEx {
 		return alfabeto;
 	}
 	
+	/**
+	 * Indica el valor que se encuentra en la raíz de la RegEx
+	 * @return El valor de la raíz del objeto.
+	 */
+	public char darValor(){
+		return valor;
+	}
+
+	/**
+	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
+	 * izquierdo de esta expresión regular.
+	 * @return El hijo izquierdo de esta expresión regular.
+	 */
+	public RegEx darLeft(){
+		return left;
+	}
+
+	/**
+	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
+	 * derecho de esta expresión regular.
+	 * @return El hijo derecho de esta expresión regular.
+	 */
+	public RegEx darRight(){
+		return right;
+	}
+
+	/**
+	 * Genera una lista que sirve de referencia a el símbolo referenciado por la hoja
+	 * que se encuentra en la posición i.
+	 * @return Lista de símbolos representados por cada hoja.
+	 */
+	public ArrayList<Character> hojas(){
+		ArrayList<Character> arreglo = new ArrayList<Character>();
+		
+		if( left == null && right == null )
+			arreglo.add(valor);
+		else{
+			for( char c : left.hojas() )
+				arreglo.add( c );
+			if( right != null )
+				for( char c : right.hojas() )
+					arreglo.add( c );
+		}
+		
+		return arreglo;
+	}
+
+	/**
+	 * Retorna el valor de primeraPos para la expresión
+	 * @return Las posibles hojas con las cuales puede empezar una instancia
+	 * de la expresión regular.
+	 */
+	public ArrayList<Integer> darPrimeraPos(){
+		return primeraPos;
+	}
+
+	/**
+	 * Genera la tabla de siguientes posiciones de las diferentes hojas de la regex.
+	 * @return Un hashmap que indica para cada hoja las posiciones que le siguen.
+	 */
+	public HashMap<Integer, ArrayList<Integer>> siguientePos(){
+		ArrayList<RegEx> postOrden = postOrden();
+		
+		HashMap<Integer, ArrayList<Integer>> retorno = new HashMap<Integer, ArrayList<Integer>>();
+		for( int i = 0; i < hojas().size(); i++ )
+			retorno.put(i, new ArrayList<Integer>());
+		for( RegEx r : postOrden ){
+			if( r.valor == CONCAT ){
+				for( int prim : r.left.ultimaPos ){
+					for( int ult : r.right.primeraPos ){
+						if( ! retorno.get(prim).contains(ult) )
+							retorno.get(prim).add(ult);
+					}
+				}
+			} else if( r.valor == KLEENE ){
+				for( int prim : r.left.ultimaPos ){
+					for( int ult : r.left.primeraPos ){
+						if( ! retorno.get(prim).contains(ult) )
+							retorno.get(prim).add(ult);
+					}
+				}
+			}
+		}
+		return retorno;
+	}
+
 	/**
 	 * Método que recorre el árbol sintáctico en inorden. Si el algoritmo está bien implementado, este
 	 * recorrido debería retornar algo muy similar a la cadena inicial (lo único que se pierde son los
@@ -315,22 +449,23 @@ public class RegEx {
 		return inicial;
 	}
 	
-	private static String addConcats(String regex){
-		for( int i = 1; i < regex.length(); i++ ){
-			// Se concatena si hay un símbolo después de algo que no sea OR o (
-			// o si es un ) o símbolo antes de un (
-			if( ( (esSimbolo(regex.charAt(i)) || regex.charAt(i) == '(' ) && ( regex.charAt(i-1) != OR && regex.charAt(i-1) != '(' ) ) ||
-					(esSimbolo(regex.charAt(i-1)) || regex.charAt(i-1) == ')') && regex.charAt(i) == '('){
-				String pre = regex.substring(0,i);
-				String post = regex.substring(i);
-				regex = pre + CONCAT + post;
-				i++;
-			}
+	private ArrayList<RegEx> postOrden(){
+		ArrayList<RegEx> postOrden = new ArrayList<RegEx>();
+		
+		if( left != null ){
+			for( RegEx r : left.postOrden() )
+				postOrden.add(r);
+				//postOrden.add( left.postOrden().get(0) );
 		}
-		while( regex.contains("..") ) regex = regex.replace("..",".");
-		return regex;
-	}
+		if( right != null ){
+			for( RegEx r : right.postOrden() )
+				postOrden.add( r );
+		}
+		postOrden.add( this );
 	
+		return postOrden;
+	}
+
 	/**
 	 * Método que indica si un caracter es un operador de expresiones regulares.
 	 * @param caracter El caracter que se quiere
@@ -350,167 +485,7 @@ public class RegEx {
 		return ! (esOperador(caracter) || caracter == '(' || caracter == ')' ); 
 	}
 	
-	/**
-	 * Método que genera un Hash que sirve para consultar las jerarquías de los operadores.
-	 * @return El hash de las jerarquías.
-	 */
-	private static HashMap<Character,Integer> generarJerarquias(){
-		HashMap<Character,Integer> retorno = new HashMap<Character,Integer>();
-		retorno.put(OR, 0);
-		retorno.put(PREGUNTA, 0);
-		retorno.put(CONCAT, 1);
-		retorno.put(KLEENE, 2);
-		retorno.put(POSITIVA, 2);
-		return retorno;
-	}
-	
-	/**
-	 * Indica el valor que se encuentra en la raíz de la RegEx
-	 * @return El valor de la raíz del objeto.
-	 */
-	public char darValor(){
-		return valor;
-	}
-	
-	/**
-	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
-	 * izquierdo de esta expresión regular.
-	 * @return El hijo izquierdo de esta expresión regular.
-	 */
-	public RegEx darLeft(){
-		return left;
-	}
-	
-	/**
-	 * Retorna la Expresión Regular que se encuentra en el nodo hijo
-	 * derecho de esta expresión regular.
-	 * @return El hijo derecho de esta expresión regular.
-	 */
-	public RegEx darRight(){
-		return right;
-	}
-	
-	/**
-	 * Esta clase main se corre para probar los métodos implementados.
-	 */
-	public static void main(String[] args) {
-		
-		/*
-		String regex1 = "((a|b)*)*e((a|b)|e)*";
-		//regex1 = "(a|b)*((a|(bb))*e)";
-		regex1 = "(a*|b*)c";
-		//regex1 = "(b|b)*abb(a|b)*";
-		//regex1 = "(a|b)*a(a|b)(a|b)";
-		//regex1 = "b*ab?";
-		//regex1 = "ab*ab+a";
-		//print("Cadena Inicial: " + regex1);
-		//print("AddConcats: "+ addConcats(regex1));
-		try {
-			//print( infix2postfix( addConcats(regex1) ) );
-			RegEx regex = new RegEx( regex1 );
-			print( regex.alfabeto.toString() );
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		//*/
-		
-		///*
-		try{
-			RegEx regex = new RegEx("(b|b)*.a.b.b.(a|b)*");
-			//print( regex.inorden() );
-			//for( char c : regex.hojas() ){
-			//	print(c);
-			//}
-			//AFN coso = new AFN( regex );
-			//print(coso);
-			
-			//AFD.print( coso.cerraduraEpsilon( new int[] {} ) );
-			//print("[");AFD.print( coso.mueve( new int[] {} , 'a' ) );print("]");
-			
-			//print( new int[] {0,1,2,4,7} == new int[]{0,1,2,4,7} );
-			
-			AFD otro = new AFD(regex);
-			print(otro);
-			
-		}catch( Exception e ){ e.printStackTrace(); }
-		//*/
-	}
-	
-	public ArrayList<Character> hojas(){
-		ArrayList<Character> arreglo = new ArrayList<Character>();
-		
-		if( left == null && right == null )
-			arreglo.add(valor);
-		else{
-			for( char c : left.hojas() )
-				arreglo.add( c );
-			if( right != null )
-				for( char c : right.hojas() )
-					arreglo.add( c );
-		}
-		
-		return arreglo;
-	}
-	
-	private ArrayList<RegEx> postOrden(){
-		ArrayList<RegEx> postOrden = new ArrayList<RegEx>();
-		
-		if( left != null ){
-			for( RegEx r : left.postOrden() )
-				postOrden.add(r);
-				//postOrden.add( left.postOrden().get(0) );
-		}
-		if( right != null ){
-			for( RegEx r : right.postOrden() )
-				postOrden.add( r );
-		}
-		postOrden.add( this );
-
-		return postOrden;
-	}
-	
-	public HashMap<Integer, ArrayList<Integer>> siguientePos(){
-		ArrayList<RegEx> postOrden = postOrden();
-		
-		HashMap<Integer, ArrayList<Integer>> retorno = new HashMap<Integer, ArrayList<Integer>>();
-		for( int i = 0; i < hojas().size(); i++ )
-			retorno.put(i, new ArrayList<Integer>());
-		for( RegEx r : postOrden ){
-			if( r.valor == CONCAT ){
-				for( int prim : r.left.ultimaPos ){
-					for( int ult : r.right.primeraPos ){
-						if( ! retorno.get(prim).contains(ult) )
-							retorno.get(prim).add(ult);
-					}
-				}
-			} else if( r.valor == KLEENE ){
-				for( int prim : r.left.ultimaPos ){
-					for( int ult : r.left.primeraPos ){
-						if( ! retorno.get(prim).contains(ult) )
-							retorno.get(prim).add(ult);
-					}
-				}
-			}
-		}
-		return retorno;
-	}
-	
-	public ArrayList<Integer> darPrimeraPos(){
-		return primeraPos;
-	}
-	
-	public ArrayList<Integer> darUltimaPos(){
-		return ultimaPos;
-	}
-	
-	public static void print( Object o ){
-		System.out.println(o);
-	}
-
-	public RegEx sintacticoCompleto() {
-		return new RegEx( CONCAT, this, new RegEx('#', hojas().size()) );
-	}
-	
+	@Override
 	public String toString(){
 		return inorden();
 	}

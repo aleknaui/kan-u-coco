@@ -37,6 +37,7 @@ public class Transicion{
 	
 	/**
 	 * Retorna el estado A
+	 * @return El estado del que parte la transición
 	 */
 	public Estado darEstadoA(){
 		return estadoA;
@@ -44,6 +45,7 @@ public class Transicion{
 	
 	/**
 	 * Retorna el estado B
+	 * @return El estado al que se dirige la transición
 	 */
 	public Estado darEstadoB(){
 		return estadoB;
@@ -51,6 +53,7 @@ public class Transicion{
 	
 	/**
 	 * Retorna el símbolo
+	 * @return El símbolo que "dirige" la transición
 	 */
 	public char darSimbolo(){
 		return simbolo;

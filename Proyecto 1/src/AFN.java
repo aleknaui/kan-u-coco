@@ -206,10 +206,125 @@ public class AFN {
 	// Métodos
 	// --------------------------------------------------------------------------------
 	
+	/**
+	 * Retorna la lista de los estados accesibles por medio
+	 * de transiciones-e desde T
+	 * @param T La lista de los estados iniciales
+	 * @return La lista de los estados accesibles por medio de transiciones-e desde T.
+	 */
+	public int[] cerraduraEpsilon( int[] T ){
+		ArrayList<Integer> cerradura = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		for( int i = 0; i < T.length; i++ ){
+			//Estado estado = estados.get(i);
+			stack.push(T[i]);
+			cerradura.add(T[i]);
+		}
+		while( ! stack.isEmpty() ){
+			Estado t = estados.get(stack.pop());
+			for( Transicion trans : transiciones ){
+				if( trans.darEstadoA() == t 
+						&& trans.darSimbolo() == RegEx.EPSILON 
+						&& ! cerradura.contains( estados.indexOf(trans.darEstadoB() ))){
+					cerradura.add(estados.indexOf(trans.darEstadoB()));
+					stack.push(estados.indexOf(trans.darEstadoB()));
+				}
+			}
+		}
+		
+		int[] retorno = new int[cerradura.size()];
+		for( int i = 0; i < cerradura.size(); i++ )
+			retorno[i] = cerradura.get(i);
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
+	}
+
+	/**
+	 * Retorna los estados a los que se accede a partir de los estados indicados y el
+	 * símbolo indicado.
+	 * @param T Los estados de los que se parte.
+	 * @param simbolo El símbolo que inicia la transición.
+	 * @return Los estados que se acceden.
+	 */
+	public int[] mueve( int[] T, char simbolo ){
+		
+		ArrayList<Integer> mueve = new ArrayList<Integer>();
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		for( int i = 0; i < T.length; i++ ){
+			stack.push(T[i]);
+		}
+		while( ! stack.isEmpty() ){
+			Estado t = estados.get(stack.pop());
+			for( Transicion trans : transiciones ){
+				if( trans.darEstadoA() == t 
+						&& trans.darSimbolo() == simbolo
+						&& ! mueve.contains( estados.indexOf(trans.darEstadoB() ))){
+					mueve.add(estados.indexOf(trans.darEstadoB()));
+				}
+			}
+		}
+		
+		int[] retorno = new int[mueve.size()];
+		for( int i = 0; i < mueve.size(); i++ )
+			retorno[i] = mueve.get(i);
+		
+		for (int i = 0; i < retorno.length; i++) {
+	         for (int j = i; j > 0; j--) {
+	            if (retorno[j-1] > retorno[j]) {
+	               int swap = retorno[j];
+	               retorno[j] = retorno[j-1];
+	               retorno[j-1] = swap;
+	            }
+	         }
+	      }
+		
+		return retorno;
+	}
+
+	/**
+	 * Realiza la simulación del AFN e indica si la cadena ingresada concuerda con la expresión regular representada.
+	 * @param w La cadena de la que se quiere determinar si representa la regex.
+	 * @return true Si la cadena es aceptada por el AFN. false Si no lo es.
+	 */
+	public boolean simular( String w ){
+		
+		int[] S = cerraduraEpsilon( new int[] {estados.indexOf( darEstadoInicial() )} );
+		for( int i = 0; i < w.length(); i++ ){
+			char c = w.charAt(i);
+			S = cerraduraEpsilon( mueve( S, c ) );
+			if( S.length == 0 ) return false;
+		}
+		
+		for( int i = 0; i < S.length; i++ ){
+			if( estados.get(S[i]) == darEstadoAceptacion() ) return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Retorna la lista de todos los estados del AFN
+	 * @return Retorna la lista de todos los estados del AFN
+	 */
 	public ArrayList<Estado> darEstados(){
 		return estados;
 	}
 	
+	/**
+	 * Retorna las transiciones del AFN
+	 * @return Las transiciones del AFN
+	 */
 	public ArrayList<Transicion> darTransiciones(){
 		return transiciones;
 	}
@@ -241,25 +356,13 @@ public class AFN {
 	}
 	
 	/**
-	 * Describe de forma escrita el AFN.
+	 * Retorna el alfabeto sobre el cual está construído el AFN
+	 * @return El alfabeto
 	 */
-	public String toString(){
-		
-		String retorno = "Estados: ";
-		for( Estado estado : estados )
-			retorno = retorno + estados.indexOf(estado) + ", ";
-		retorno = retorno.substring(0,retorno.length()-2) + "\n";
-		
-		retorno += "Estado Inicial: " + estados.indexOf(darEstadoInicial()) + "\n";
-		retorno += "Estado de Aceptación: " + estados.indexOf(darEstadoAceptacion()) + "\n";
-		
-		retorno = retorno + "Transiciones:\n";
-		for( Transicion transicion : transiciones )
-			retorno = retorno + "\t T(" + estados.indexOf(transicion.darEstadoA()) + ", '" + transicion.darSimbolo() + "') = " + estados.indexOf(transicion.darEstadoB()) + "\n";
-		
-		return retorno;
+	public ArrayList<Character> darAlfabeto() {
+		return alfabeto;
 	}
-	
+
 	/**
 	 * Agrega en el índice indicado a la lista de estados un nuevo estado
 	 * con los atributos indicados en los parámetros. Retorna el estado creado.
@@ -306,98 +409,22 @@ public class AFN {
 		transiciones.add( transicion );
 	}
 
-	/**
-	 * Retorna la lista de los estados accesibles por medio
-	 * de transiciones-e desde T
-	 * @param T La lista de los estados iniciales
-	 * @return La lista de los estados accesibles por medio de transiciones-e desde T.
-	 */
-	public int[] cerraduraEpsilon( int[] T ){
-		ArrayList<Integer> cerradura = new ArrayList<Integer>();
-		Stack<Integer> stack = new Stack<Integer>();
-		for( int i = 0; i < T.length; i++ ){
-			//Estado estado = estados.get(i);
-			stack.push(T[i]);
-			cerradura.add(T[i]);
-		}
-		while( ! stack.isEmpty() ){
-			Estado t = estados.get(stack.pop());
-			for( Transicion trans : transiciones ){
-				if( trans.darEstadoA() == t 
-						&& trans.darSimbolo() == RegEx.EPSILON 
-						&& ! cerradura.contains( estados.indexOf(trans.darEstadoB() ))){
-					cerradura.add(estados.indexOf(trans.darEstadoB()));
-					stack.push(estados.indexOf(trans.darEstadoB()));
-				}
-			}
-		}
+	@Override
+	public String toString(){
 		
-		int[] retorno = new int[cerradura.size()];
-		for( int i = 0; i < cerradura.size(); i++ )
-			retorno[i] = cerradura.get(i);
+		String retorno = "Estados: ";
+		for( Estado estado : estados )
+			retorno = retorno + estados.indexOf(estado) + ", ";
+		retorno = retorno.substring(0,retorno.length()-2) + "\n";
 		
-		for (int i = 0; i < retorno.length; i++) {
-	         for (int j = i; j > 0; j--) {
-	            if (retorno[j-1] > retorno[j]) {
-	               int swap = retorno[j];
-	               retorno[j] = retorno[j-1];
-	               retorno[j-1] = swap;
-	            }
-	         }
-	      }
+		retorno += "Estado Inicial: " + estados.indexOf(darEstadoInicial()) + "\n";
+		retorno += "Estado de Aceptación: " + estados.indexOf(darEstadoAceptacion()) + "\n";
+		
+		retorno = retorno + "Transiciones:\n";
+		for( Transicion transicion : transiciones )
+			retorno = retorno + "\t T(" + estados.indexOf(transicion.darEstadoA()) + ", '" + transicion.darSimbolo() + "') = " + estados.indexOf(transicion.darEstadoB()) + "\n";
 		
 		return retorno;
-	}
-	
-	/**
-	 * Retorna los estados a los que se accede a partir de los estados indicados y el
-	 * símbolo indicado.
-	 * @param T Los estados de los que se parte.
-	 * @param simbolo El símbolo que inicia la transición.
-	 * @return Los estados que se acceden.
-	 */
-	public int[] mueve( int[] T, char simbolo ){
-		
-		ArrayList<Integer> mueve = new ArrayList<Integer>();
-		Stack<Integer> stack = new Stack<Integer>();
-		
-		for( int i = 0; i < T.length; i++ ){
-			stack.push(T[i]);
-		}
-		while( ! stack.isEmpty() ){
-			Estado t = estados.get(stack.pop());
-			for( Transicion trans : transiciones ){
-				if( trans.darEstadoA() == t 
-						&& trans.darSimbolo() == simbolo
-						&& ! mueve.contains( estados.indexOf(trans.darEstadoB() ))){
-					mueve.add(estados.indexOf(trans.darEstadoB()));
-				}
-			}
-		}
-		
-		int[] retorno = new int[mueve.size()];
-		for( int i = 0; i < mueve.size(); i++ )
-			retorno[i] = mueve.get(i);
-		
-		for (int i = 0; i < retorno.length; i++) {
-	         for (int j = i; j > 0; j--) {
-	            if (retorno[j-1] > retorno[j]) {
-	               int swap = retorno[j];
-	               retorno[j] = retorno[j-1];
-	               retorno[j-1] = swap;
-	            }
-	         }
-	      }
-		
-		return retorno;
-	}
-
-	/**
-	 * Retorna el alfabeto sobre el cual está construído el AFN
-	 * @return El alfabeto
-	 */
-	public ArrayList<Character> darAlfabeto() {
-		return alfabeto;
 	}
 	
 }
