@@ -1,5 +1,8 @@
 /**
  * Clase que representa un estado dentro de un Autómata Finito.
+ * Equivalente a un vértice dentro de un grafo. Sus atributos simplemente
+ * indican si el estado es de aceptación y/o inicial. El identificador del
+ * Estado es generado por Java.
  * @author AleKnaui
  */
 public class Estado {
@@ -8,8 +11,6 @@ public class Estado {
 	// Atributos
 	// --------------------------------------------------------------------------------
 	
-	/** ID único del estado */
-	//private int id;
 	/** Indica si el estado es el estado inicial del autómata en que se encuentra */
 	private boolean esInicial;
 	/** Indica si el estado es un estado de aceptación del autómata en que se encuentra */

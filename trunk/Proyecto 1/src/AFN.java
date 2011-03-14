@@ -5,6 +5,9 @@ import java.util.Stack;
  * Clase que representa un Autómata Finito No Determinista. Un AFN
  * se construye a partir del árbol sintáctico de una Expresión Regular
  * por medio del algoritmo de Thompson.
+ * El autómata se modela como un grafo, siendo sus vértices los diferentes estados
+ * y los enlaces las transiciones. También se incluyen el alfabeto que se utiliza
+ * y la expresión regular representada.
  * @author AleKnaui
  */
 public class AFN {
@@ -19,13 +22,16 @@ public class AFN {
 	private ArrayList<Estado> estados;
 	/** Lista de las transiciones entre los estados del AFN */
 	private ArrayList<Transicion> transiciones;
+	/** Expresión regular reconocida por el AFN */
+	private RegEx regex;
 	
 	// --------------------------------------------------------------------------------
 	// Constructores
 	// --------------------------------------------------------------------------------
 	
 	/**
-	 * Crea un AFN que corresponde al caso base del algoritmo de Thompson
+	 * Crea un AFN que corresponde al caso base del algoritmo de Thompson. Este
+	 * consta de dos estados y una única transición.
 	 */
 	public AFN( char simbolo ){
 		
@@ -42,7 +48,7 @@ public class AFN {
 	}
 	
 	/**
-	 * Implementa el algoritmo de Thompson para "operar" AFNs
+	 * Implementa el algoritmo de Thompson para "operar" AFNs.
 	 * @param afn1 El AFN que se encuentra a la izquierda en la Expresión Regular
 	 * @param afn2 El AFN que se encuentra a la derecha en la Expresión Regular. null Si simbolo == RegEx.KLEENE
 	 * @param simbolo El operador que determinará el algoritmo de Thompson a utilizar.s
@@ -168,12 +174,13 @@ public class AFN {
 	
 	/**
 	 * Crea un AFN a partir de un árbol sintáctico de una expresión regular.
+	 * De forma recursiva crea los diferentes árboles de Thompson y los une.
 	 * @param regex La expresión regular de la que se origina el AFN
 	 */
 	public AFN( RegEx regex ){
 		
 		alfabeto = regex.darAlfabeto();
-		
+		this.regex = regex;
 		// Le quita el .# del final
 		// regex = regex.darLeft();
 		
@@ -362,6 +369,14 @@ public class AFN {
 	public ArrayList<Character> darAlfabeto() {
 		return alfabeto;
 	}
+	
+	/**
+	 * Retorna la expresión regular de la que parte el AFN
+	 * @return La expresión regular reconocida por el AFN.
+	 */
+	public RegEx darRegex(){
+		return regex;
+	}
 
 	/**
 	 * Agrega en el índice indicado a la lista de estados un nuevo estado
@@ -412,7 +427,14 @@ public class AFN {
 	@Override
 	public String toString(){
 		
-		String retorno = "Estados: ";
+		String retorno = "Alfabeto: ";
+		for( char a : alfabeto )
+			retorno += a + ", ";
+		retorno = retorno.substring(0,retorno.length()-2) + "\n";
+		
+		retorno += "Expresión Regular: " + regex.toString() + "\n";
+		
+		retorno += "Estados: ";
 		for( Estado estado : estados )
 			retorno = retorno + estados.indexOf(estado) + ", ";
 		retorno = retorno.substring(0,retorno.length()-2) + "\n";
