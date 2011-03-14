@@ -2,9 +2,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Clase que representa un Autómata Finito Determinista.
- * @author ale
- *
+ * Clase que representa un Autómata Finito Determinista. Un AFD se puede crear
+ * a partir de una Expresión Regular o a partir de un AFN ya creado.
+ * El autómata se modela como un grafo, siendo sus vértices los diferentes estados
+ * y los enlaces las transiciones. También se incluyen el alfabeto que se utiliza
+ * y la expresión regular representada.
+ * @author AleKnaui
  */
 public class AFD {
 
@@ -18,6 +21,8 @@ public class AFD {
 	private ArrayList<Estado> estados;
 	/** Lista de las transiciones entre los estados del AFD */
 	private ArrayList<Transicion> transiciones;
+	/** Expresión regular que reconoce el AFD */
+	private RegEx regex;
 	
 	// --------------------------------------------------------------------------------
 	// Constructores
@@ -25,12 +30,14 @@ public class AFD {
 	
 	/**
 	 * Construye un AFD partiendo de un AFN y usando el algoritmo de subconjuntos.
+	 * @param El AFN del que se construye el AFD.
 	 */
 	public AFD( AFN afn ){
 		
 		alfabeto = afn.darAlfabeto();
 		estados = new ArrayList<Estado>();
 		transiciones = new ArrayList<Transicion>();
+		regex = afn.darRegex();
 		
 		ArrayList<Estado> Sn = afn.darEstados();
 		ArrayList<int[]> Sd = new ArrayList<int[]>();
@@ -78,6 +85,7 @@ public class AFD {
 		alfabeto = regex.darAlfabeto();
 		estados = new ArrayList<Estado>();
 		transiciones = new ArrayList<Transicion>();
+		this.regex = regex;
 		
 		regex = regex.sintacticoCompleto();
 		
@@ -258,7 +266,14 @@ public class AFD {
 	@Override
 	public String toString(){
 		
-		String retorno = "Estados: ";
+		String retorno = "Alfabeto: ";
+		for( char a : alfabeto )
+			retorno += a + ", ";
+		retorno = retorno.substring(0,retorno.length()-2) + "\n";
+		
+		retorno += "Expresión Regular: " + regex.toString() + "\n";
+		
+		retorno += "Estados: ";
 		for( Estado estado : estados )
 			retorno = retorno + estados.indexOf(estado) + ", ";
 		retorno = retorno.substring(0,retorno.length()-2) + "\n";

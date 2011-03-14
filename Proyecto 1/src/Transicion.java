@@ -1,5 +1,6 @@
 /**
  * Esta clase representa una transición entre dos estados.
+ * Una transición es equivalente a un enlace entre dos vértices de un grafo.
  * @author AleKnaui
  */
 public class Transicion{

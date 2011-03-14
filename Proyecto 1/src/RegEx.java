@@ -4,7 +4,6 @@ import java.util.Stack;
 /**
  * Esta clase representa una expresión regular construída a partir de una cadena.
  * La expresión regular se modela como un árbol sintáctico.
- * 
  * @author AleKnaui
  */
 public class RegEx {
@@ -45,7 +44,9 @@ public class RegEx {
 	// --------------------------------------------------------------------------------
 	
 	/**
-	 * Caso base en el que la RegEx consta de un solo símbolo
+	 * Caso base en el que la RegEx consta de un solo símbolo. Simplemente
+	 * se crea un nodo que representa al símbolo y no tiene hijos izquierdo
+	 * ni derecho.
 	 */
 	public RegEx(char simbolo, int numHoja){
 		valor = simbolo;
@@ -59,7 +60,8 @@ public class RegEx {
 	}
 	
 	/**
-	 * Crea la RegEx con el símbolo e hijos indicados
+	 * Crea la RegEx con el símbolo e hijos indicados. Se utiliza con
+	 * los símbolos CONCAT y OR
 	 * @param simbolo Símbolo en la raíz del árbol
 	 * @param left Hijo izquierdo
 	 * @param right Hijo derecho
@@ -122,6 +124,8 @@ public class RegEx {
 	
 	/**
 	 * Interpreta una cadena y crea su árbol sintáctico.
+	 * Primero convierte la cadena a notación Postfix y luego por medio
+	 * de una pila crea las diferentes partes del árbol.
 	 * @param regex La representación en cadena de la expresión regular.
 	 */
 	public RegEx(String regex) throws Exception{
@@ -184,12 +188,12 @@ public class RegEx {
 		
 		assert stack.size() == 1;
 		RegEx finale = stack.pop();
-		valor = finale.valor;
-		left = finale.left;
-		right = finale.right;
-		anulable = finale.anulable;
-		primeraPos = finale.primeraPos;
-		ultimaPos = finale.ultimaPos;
+		this.valor = finale.valor;
+		this.left = finale.left;
+		this.right = finale.right;
+		this.anulable = finale.anulable;
+		this.primeraPos = finale.primeraPos;
+		this.ultimaPos = finale.ultimaPos;
 		
 		//print( "Postorden: " + postorden() );
 		//print( "Inorden: " + inorden() );
