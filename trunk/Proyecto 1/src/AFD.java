@@ -44,7 +44,16 @@ public class AFD {
 
 		// Estado inicial del AFD
 		Sd.add( afn.cerraduraEpsilon( new int[] { Sn.indexOf( afn.darEstadoInicial() ) } ) );
-		estados.add( new Estado( true, false ) );
+		//estados.add( new Estado( true, false ) );
+		boolean PrimeroEsFinal = false;
+		
+		// Verificación sobre si U es estado de aceptación.
+		int fn0 = Sn.indexOf(afn.darEstadoAceptacion());
+		if( contains( afn.cerraduraEpsilon( new int[] { Sn.indexOf( afn.darEstadoInicial() ) } ) , fn0 ) )
+			PrimeroEsFinal = true;
+		
+		Estado primero = new Estado( true, PrimeroEsFinal );
+		estados.add( primero );
 		
 		for( int i = 0; i < Sd.size(); i++ ){
 			int[] T = Sd.get(i);
@@ -92,8 +101,14 @@ public class AFD {
 		HashMap<Integer, ArrayList<Integer>> siguientePos = regex.siguientePos();
 		ArrayList<Character> hojas = regex.hojas();
 		ArrayList<ArrayList<Integer>> Sd = new ArrayList<ArrayList<Integer>>();
-		Sd.add( regex.darPrimeraPos() );
-		estados.add( new Estado( true, false ) );
+		//Sd.add( regex.darPrimeraPos() );
+		boolean primeroEsFinal = false;
+		if( regex.darPrimeraPos().contains( hojas.size()-1 ) )
+			primeroEsFinal = true;
+		Estado primero = new Estado( true, primeroEsFinal );
+		estados.add( primero );
+		Sd.add(regex.darPrimeraPos());
+		//estados.add( new Estado( true, false ) );
 		
 		for( int i = 0; i < Sd.size(); i++ ){
 			Estado actual = estados.get(i);
@@ -142,12 +157,17 @@ public class AFD {
 	 */
 	public boolean simular( String w ){
 		
+		long time = System.currentTimeMillis();
+		
 		Estado S = darEstadoInicial();
 		for( int i = 0; i < w.length(); i++ ){
 			char c = w.charAt(i);
 			S = transicion( S, c );
 			if( S == null ) return false;
 		}
+		
+		System.out.println("Tiempo de la simulación del AFD: " + (System.currentTimeMillis() - time) + "ms.");
+		
 		return darEstadosAceptacion().contains( S );
 	}
 

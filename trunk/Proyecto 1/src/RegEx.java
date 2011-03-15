@@ -211,7 +211,7 @@ public class RegEx {
 	 * @return La cadena en notación postfix.
 	 * @throws Exception Si hay un paréntesis no cerrado (o no abierto, según el caso).
 	 */
-	private String infix2postfix( String infix ) throws Exception{
+	public String infix2postfix( String infix ) throws Exception{ //TODO
 		Stack<Character> stack = new Stack<Character>();
 		String output = "";
 		HashMap<Character,Integer> jerarquias = generarJerarquias();

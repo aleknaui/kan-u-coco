@@ -306,6 +306,8 @@ public class AFN {
 	 */
 	public boolean simular( String w ){
 		
+		long time = System.currentTimeMillis();
+		
 		int[] S = cerraduraEpsilon( new int[] {estados.indexOf( darEstadoInicial() )} );
 		for( int i = 0; i < w.length(); i++ ){
 			char c = w.charAt(i);
@@ -316,6 +318,8 @@ public class AFN {
 		for( int i = 0; i < S.length; i++ ){
 			if( estados.get(S[i]) == darEstadoAceptacion() ) return true;
 		}
+		
+		System.out.println("Tiempo de la simulación del AFN: " + (System.currentTimeMillis() - time) + "ms.");
 		
 		return false;
 	}
