@@ -28,6 +28,14 @@ public class AFD {
 	// Constructores
 	// --------------------------------------------------------------------------------
 	
+	public AFD( ArrayList<Estado> estados, ArrayList<Transicion> transiciones,
+			ArrayList<Character> alfabeto, RegEx regex ){
+		this.estados = estados;
+		this.transiciones = transiciones;
+		this.alfabeto = alfabeto;
+		this.regex = regex;
+	}
+	
 	/**
 	 * Construye un AFD partiendo de un AFN y usando el algoritmo de subconjuntos.
 	 * @param El AFN del que se construye el AFD.
@@ -170,6 +178,82 @@ public class AFD {
 		
 		return darEstadosAceptacion().contains( S );
 	}
+	
+	/**
+	 * Retorna el AFD mínimo que reconoce la expresión regular del AFD actual.
+	 * @return el AFD con la menor cantidad de estados posibles.
+	 */
+	public AFD minimizar(){
+		ArrayList<ArrayList<Integer>> particion = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> noFinales = new ArrayList<Integer>();
+		ArrayList<Integer> finales = new ArrayList<Integer>();
+		for( Estado e : estados )
+			if( e.esAceptacion() ) finales.add(estados.indexOf(e));
+			else noFinales.add( estados.indexOf(e) );
+		particion.add(noFinales);
+		particion.add(finales);
+		
+		particion = particionar( particion );
+		ArrayList<Estado> estadosMinimos = new ArrayList<Estado>();
+		ArrayList<Transicion> transicionesMinimas = new ArrayList<Transicion>();
+		for( ArrayList<Integer> grupo : particion ){
+			boolean esInicial = false;
+			boolean esAceptacion = false;
+			for( int e : grupo ){
+				if( estados.get(e).esInicial() )
+					esInicial = true;
+				if( estados.get(e).esAceptacion() )
+					esAceptacion = true;
+			}
+			if( ! (grupo.size() == 1 && grupo.contains(estados.size())) )
+				estadosMinimos.add(new Estado( esInicial, esAceptacion ));
+		}
+		for( ArrayList<Integer> grupo : particion ){
+			for( char a : alfabeto ){
+				int trans = transicionInt( grupo.get(0), a );
+				int iTrans = -1;
+				for( int i = 0; i < particion.size(); i++ ){
+					if( particion.get(i).contains(trans) )
+						iTrans = i;
+				}
+				assert iTrans != -1;
+				if( trans != estados.size() && iTrans != estados.size()){
+					transicionesMinimas.add( new Transicion( estadosMinimos.get( particion.indexOf(grupo) ), estadosMinimos.get(iTrans), a ) );
+				}
+			}
+		}
+		
+		return new AFD( estadosMinimos, transicionesMinimas, alfabeto, regex );
+	}
+	
+	/**
+	 * Método que divide los estados en grupos de estados equivalentes hasta que ya no se pueda
+	 * @param particion La partición anterior (en el caso inicial, los estados finales y no finales)
+	 * @return La partición final, con los grupos que representan los estados mínimos.
+	 */
+	private ArrayList<ArrayList<Integer>> particionar( ArrayList<ArrayList<Integer>> particion ){
+		ArrayList<ArrayList<Integer>> nuevaParticion = new ArrayList<ArrayList<Integer>>();
+		
+		for( Estado e : estados ){
+			boolean encontro = false;
+			for( ArrayList<Integer> grupo : nuevaParticion ){
+				assert !grupo.isEmpty() : "Once again, Ale sucks";
+				if( equivalentes(estados.indexOf(e), grupo.get(0), particion) ){
+					grupo.add(estados.indexOf(e));
+					encontro = true;
+					break;
+				}
+			}
+			if( ! encontro ){
+				nuevaParticion.add( new ArrayList<Integer>() );
+				nuevaParticion.get(nuevaParticion.size()-1).add(estados.indexOf(e));
+			}
+		}
+		
+		if( ! nuevaParticion.equals(particion) ) nuevaParticion = particionar( nuevaParticion );
+		
+		return nuevaParticion;
+	}
 
 	/**
 	 * Retorna el estado inicial del AFD.
@@ -213,6 +297,49 @@ public class AFD {
 		}
 		return null;
 		
+	}
+	
+	/**
+	 * Este método trabaja similar al método transicion(),
+	 * pero funciona con los índices de los estados en vez de
+	 * los estados en sí. Se utiliza en la minimización de los AFDs,
+	 * por lo que si no hay una transición para el estado s con el símbolo
+	 * c, se retorna el "estado muerto" d. Éste estado tiene transiciones
+	 * con todos los símbolos hacia él mismo.
+	 * @param i El índice del estado del que parte la transición
+	 * @param c El caracter bajo el cual se realiza la transición
+	 * @return El índice de estado al que se dirige la transición
+	 */
+	private int transicionInt( int i, char c ){
+		if( i == estados.size() ) return i;
+		Estado s = estados.get(i);
+		for( Transicion trans : transiciones){
+			if( trans.darEstadoA() == s ){
+				if( trans.darSimbolo() == c )
+					return estados.indexOf(trans.darEstadoB());
+			}
+		}
+		return estados.size();
+	}
+	
+	/**
+	 * Método que indica si los estados s y t son equivalentes con respecto a la partición indicada
+	 * @param s Uno de los estados a comparar
+	 * @param t El otro estado a comparar
+	 * @param particion La partición en la cual se comparan
+	 * @return true Si para cada símbolo del alfabeto, cada transición del estado se dirige al mismo grupo.
+	 */
+	private boolean equivalentes( int s, int t, ArrayList<ArrayList<Integer>> particion ){
+		if( estados.get(s).esAceptacion() != estados.get(t).esAceptacion() ) return false;
+		for( char c : alfabeto ){
+			int trans1 = transicionInt(s, c);
+			int trans2 = transicionInt(t, c);
+			for( ArrayList<Integer> subgrupo : particion ){
+				if( subgrupo.contains(trans1) != subgrupo.contains(trans2) )
+					return false;
+			}
+		}
+		return true;
 	}
 
 	/**

@@ -127,6 +127,8 @@ public class Main {
 			AFN thompson = new AFN( regex );
 			AFD directo = new AFD( regex );
 			AFD subconjuntos = new AFD( thompson );
+			AFD minimoDirecto = directo.minimizar();
+			AFD minimoSubconjuntos = subconjuntos.minimizar();
 			
 			generarArchivo( nombre + "_AFN_Thompson", thompson.toString() );
 			//System.out.println( thompson.toString() );
@@ -136,10 +138,17 @@ public class Main {
 			//System.out.println();
 			generarArchivo( nombre + "_AFD_Subconjuntos", subconjuntos.toString() );
 			//System.out.println( subconjuntos.toString() );
+			//System.out.println();
+			generarArchivo( nombre + "_AFD_MinimoDirecto", minimoDirecto.toString() );
+			//System.out.println( subconjuntos.toString() );
+			//System.out.println();
+			generarArchivo( nombre + "_AFD_MinimoSubconjuntos", minimoSubconjuntos.toString() );
+			//System.out.println( subconjuntos.toString() );
 			
 			System.out.println();
 			
-			if( directo.simular(cadenaW) && subconjuntos.simular(cadenaW) && thompson.simular(cadenaW) )
+			if( directo.simular(cadenaW) && subconjuntos.simular(cadenaW) && thompson.simular(cadenaW) 
+					&& minimoDirecto.simular(cadenaW) && minimoSubconjuntos.simular(cadenaW))
 				System.out.println("La cadena \"" + cadenaW + "\" SI concuerda con la expresión regular.");
 			else
 				System.out.println("La cadena \"" + cadenaW + "\" NO concuerda con la expresión regular.");
@@ -147,7 +156,8 @@ public class Main {
 			System.out.print("¿Desea evaluar otra cadena? (n = No) ");
 			while( ! scanner.nextLine().equals("n")){
 				cadenaW = obtenerW();
-				if( directo.simular(cadenaW) && subconjuntos.simular(cadenaW) && thompson.simular(cadenaW) )
+				if( directo.simular(cadenaW) && subconjuntos.simular(cadenaW) && thompson.simular(cadenaW)
+						&& minimoDirecto.simular(cadenaW) && minimoSubconjuntos.simular(cadenaW))
 					System.out.println("La cadena \"" + cadenaW + "\" SI concuerda con la expresión regular.");
 				else
 					System.out.println("La cadena \"" + cadenaW + "\" NO concuerda con la expresión regular.");
@@ -157,7 +167,8 @@ public class Main {
 		} catch( EmptyStackException e ){
 			System.out.println( "La expresión regular no está escrita correctamente." );
 		} catch( Exception e ){
-			System.out.println( "Mismatched parentesis." );
+			e.printStackTrace();
+			//System.out.println( "Mismatched parentesis." );
 		}
 		
 		/*try {
