@@ -9,43 +9,7 @@ import java.util.Scanner;
  * Clase principal del proyecto. Obtiene un nombre, una expresión regular y una cadena a evaluar.
  * Genera el árbol sintáctico de la expresión regular, un AFN por Thompson, un AFD en base al AFN
  * y otro AFD directamente a partir del la expresión regular. 
- * 
- * <b>Diseño:</b>
- * <p>Desde el principio se hizo claro que debía haber una clase para un una Expresión Regular,
- * un Autómata Finito Determinista y un Autómata Finito No Determinista. Luego de ver el
- * algoritmo de creación directa de AFDs pensé que sería bueno modelar una Expresión Regular
- * como un árbol sintáctico.</p>
- * 
- * <p>En realidad no se me ocurrió modelar los Autómatas con una matriz en vez de Estados y Transiciones
- * separadas, ya que contaba con el código que realicé para mi tarea 3.</p>
- * 
- * <p>Tenía en principio pensado modelar una sola clase que representara mi grafo, ya que la clase Estado
- * tendría un HashMap con la información de sus transiciones. A la hora de la implementación, me imaginé
- * que ésto sería muy complicado y decidí hacer una clase Estado y una clase Transición.</p>
- * 
- * <b>Discusion:</b>
- * <p>Lo más difícil del proyecto fue para mí la interpretación de la Expresión Regular, lo cual me retrasó
- * y preocupó bastante. Afortunadamente encontré el Shunting-Yard Algorithm de Djikstra para convertir expresiones
- * de notación infix a notación postfix. Luego de adaptar el algoritmo para usarlo con los operadores de expresiones
- * regulares, la generación del árbol fue mucho más sencilla.</p>
- * 
- * <p>Hubo un momento en el que quería borrar el proyecto y hacerlo en Python, porque ciertamente aunque tenía los
- * algoritmos casi terminados, me tardé bastante en implementarlos, ya que la declaración de los tipos de las variables
- * nunca terminaba y no contaba como utilidades tan prácticas como las listas y las tuplas. Afortunadamente logré terminar.</p>
- * 
- * <p>Me gustó mucho hacer la implementación del AFD directo, ya que fue casi lo último que hice, por lo que el código fue muy ordenado
- * y en tres corridas me funcionó. De similar manera la simulación.
- * </p>
- * 
- * <p>Aunque no me preocupé mucho sobre cómo realizaría el proyecto, ya que hice mi tarea y presté atención en las clases, ciertamente
- * tomó bastante tiempo. Traté de implementar una parte de la funcionalidad por día, empezando el Lunes. No lo logré, a decir verdad,
- * porque la creación de el árbol sintáctico no me funcionó el primer día, al igual que el AFD directo. Aunque, a excepción de la primera
- * parte, no tuve dudas sobre qué hacer, la implementación ciertamente tomó bastante tiempo.</p>
- * 
- * <b>Ejemplos y pruebas realizadas:</b>
-
- * 
- * <p>Finalmente, jugué mucho con el producto final, para verificar que se reconocieran correctamente las expresiones regulares.</p>
+ *
  * @author AleKnaui
  */
 public class Main {
@@ -115,6 +79,11 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		
+		System.out.println("Alejandra Canahui");
+		System.out.println("09-303");
+		System.out.println("Kan U Coco? - Proyecto 1");
+		System.out.println();
+		
 		String nombre = obtenerNombre();
 		System.out.println();
 		String cadenaRegex = obtenerRegex();
@@ -152,7 +121,7 @@ public class Main {
 				System.out.println("La cadena \"" + cadenaW + "\" SI concuerda con la expresión regular.");
 			else
 				System.out.println("La cadena \"" + cadenaW + "\" NO concuerda con la expresión regular.");
-			
+			System.out.println();
 			System.out.print("¿Desea evaluar otra cadena? (n = No) ");
 			while( ! scanner.nextLine().equals("n")){
 				cadenaW = obtenerW();
@@ -161,14 +130,15 @@ public class Main {
 					System.out.println("La cadena \"" + cadenaW + "\" SI concuerda con la expresión regular.");
 				else
 					System.out.println("La cadena \"" + cadenaW + "\" NO concuerda con la expresión regular.");
+				System.out.println();
 				System.out.print("¿Desea evaluar otra cadena? (n = No) ");
 			}
 			
 		} catch( EmptyStackException e ){
 			System.out.println( "La expresión regular no está escrita correctamente." );
 		} catch( Exception e ){
-			e.printStackTrace();
-			//System.out.println( "Mismatched parentesis." );
+			//e.printStackTrace();
+			System.out.println( "Mismatched parentesis." );
 		}
 		
 		/*try {

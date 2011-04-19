@@ -358,11 +358,18 @@ public class AFN {
 	 */
 	public Estado darEstadoAceptacion(){
 		
-		for( int i = estados.size()-1; i >= 0; i-- ){
-			if( estados.get(i).esAceptacion() ) return estados.get(i);
-		} assert false == true; // Aserción fallada automáticamente porque no
-								// hay un estado de aceptación
-		return null;			// Retorna null por salud mental del compilador
+		// Por el momento retorna únicamente un estado porque
+		// así está diseñada esta clase, pero muy probablemente
+		// tenga que modificarlo luego :P 
+		
+		ArrayList<Estado> retorno = new ArrayList<Estado>();
+		
+		for( Estado estado : estados )
+			if( estado.esAceptacion() )
+				retorno.add( estado );
+		assert retorno.size()==1;
+		
+		return retorno.get(0);
 		
 	}
 	
