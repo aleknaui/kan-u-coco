@@ -17,7 +17,7 @@ public class RegEx {
 	public final static char KLEENE = '*';
 	public final static char POSITIVA = '+';
 	public final static char PREGUNTA = '?';
-	public final static char EPSILON = 'e';
+	public final static char EPSILON = (char)127;//'e';
 
 	// --------------------------------------------------------------------------------
 	// Atributos
