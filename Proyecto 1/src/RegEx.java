@@ -12,12 +12,14 @@ public class RegEx {
 	// Constantes
 	// --------------------------------------------------------------------------------
 	
-	public final static char OR = '|';
-	public final static char CONCAT = '.';
-	public final static char KLEENE = '*';
-	public final static char POSITIVA = '+';
-	public final static char PREGUNTA = '?';
-	public final static char EPSILON = (char)127;//'e';
+	public final static char OR = (char) -5;//'|';
+	public final static char CONCAT = (char) -6;//'.';
+	public final static char KLEENE = (char) -7;//'*';
+	public final static char POSITIVA = (char) -8;//'+';
+	public final static char PREGUNTA = (char) -9;//'?';
+	public final static char EPSILON = (char) -10;//(char)127;//'e';
+	public final static char OPEN_PARENTHESIS = (char) -11;//'(';
+	public final static char CLOSE_PARENTHESIS = (char) -12;//')';
 
 	// --------------------------------------------------------------------------------
 	// Atributos
@@ -252,12 +254,12 @@ public class RegEx {
 			}
 			
 			// If the token is a left parenthesis, then push it onto the stack.
-			else if( actual == '(' ) stack.push(actual);
+			else if( actual == OPEN_PARENTHESIS ) stack.push(actual);
 			
 			// If the token is a right parenthesis:
-			else if( actual == ')' ){
+			else if( actual == CLOSE_PARENTHESIS ){
 				// Until the token at the top of the stack is a left parenthesis, pop operators off the stack onto the output queue.
-				while( ! (stack.peek() == '(') && ! stack.isEmpty())
+				while( ! (stack.peek() == OPEN_PARENTHESIS) && ! stack.isEmpty())
 					output += stack.pop();
 				// Pop the left parenthesis from the stack, but not onto the output queue.
 				if( stack.isEmpty() ) throw new Exception("Mismatched Parenthesis"); //If the stack runs out without finding a left parenthesis, then there are mismatched parentheses.
@@ -272,7 +274,7 @@ public class RegEx {
 		// While there are still operator tokens in the stack:
 		while( ! stack.isEmpty() ){
 			// If the operator token on the top of the stack is a parenthesis, then there are mismatched parentheses.
-			if( stack.peek() == '(' || stack.peek() == ')' ) throw new Exception("Mismatched Parenthesis");
+			if( stack.peek() == OPEN_PARENTHESIS || stack.peek() == CLOSE_PARENTHESIS ) throw new Exception("Mismatched Parenthesis");
 			// Pop the operator onto the output queue.
 			output += stack.pop();
 		}
@@ -289,8 +291,8 @@ public class RegEx {
 		for( int i = 1; i < regex.length(); i++ ){
 			// Se concatena si hay un símbolo después de algo que no sea OR o (
 			// o si es un ) o símbolo antes de un (
-			if( ( (esSimbolo(regex.charAt(i)) || regex.charAt(i) == '(' ) && ( regex.charAt(i-1) != OR && regex.charAt(i-1) != '(' ) ) ||
-					(esSimbolo(regex.charAt(i-1)) || regex.charAt(i-1) == ')') && regex.charAt(i) == '('){
+			if( ( (esSimbolo(regex.charAt(i)) || regex.charAt(i) == OPEN_PARENTHESIS ) && ( regex.charAt(i-1) != OR && regex.charAt(i-1) != OPEN_PARENTHESIS ) ) ||
+					(esSimbolo(regex.charAt(i-1)) || regex.charAt(i-1) == CLOSE_PARENTHESIS) && regex.charAt(i) == OPEN_PARENTHESIS){
 				String pre = regex.substring(0,i);
 				String post = regex.substring(i);
 				regex = pre + CONCAT + post;
@@ -486,7 +488,7 @@ public class RegEx {
 	 * @return true Si el caracter es un símbolo perteneciente al lenguaje. false Si no lo es.
 	 */
 	public static boolean esSimbolo( char caracter ){
-		return ! (esOperador(caracter) || caracter == '(' || caracter == ')' ); 
+		return ! (esOperador(caracter) || caracter == OPEN_PARENTHESIS || caracter == CLOSE_PARENTHESIS ); 
 	}
 	
 	@Override

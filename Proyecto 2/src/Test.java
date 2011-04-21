@@ -25,12 +25,7 @@ public class Test {
 	// --------------------------------------------------------------------------------
 	
 	public static void main(String[] args){
-		try {
-			new Recognizer( "test.ATG" );
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public static void print(Object o){
