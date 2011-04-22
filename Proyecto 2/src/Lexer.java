@@ -83,6 +83,8 @@ public class Lexer {
 	 */
 	public void addToken( String nombre, String regexs ) throws Exception{
 		
+		// Test.print(nombre + " = " + regexs);
+		
 		// Se crea AFD que reconoce al token.
 		RegEx regex = new RegEx(regexs);
 		AFD afd = new AFD( regex ).minimizar();
@@ -217,8 +219,9 @@ public class Lexer {
 		int puntero2 = -1;
 		
 		int[] S = cerraduraEpsilon( new int[] {estados.indexOf( darEstadoInicial() )} );
-		for( int i = puntero; i < cadena.length(); i++ ){
-			char c = cadena.charAt(i);
+		for( puntero = puntero; puntero < cadena.length(); puntero++ ){
+			char c = cadena.charAt(puntero);
+			//Test.print("'" + c + "'");
 			S = cerraduraEpsilon( mueve( S, c ) );
 			// Si alguno de los estados en los que se encuentra es de aceptación,
 			// actualiza el puntero2 y la lista de los últimos estados de aceptación
@@ -227,12 +230,12 @@ public class Lexer {
 				if( estado.esAceptacion() ){
 					// Si ya se había detectado otro estado de aceptación en esta fase,
 					// simplemente se añade el estado a la lista
-					if( puntero2 == i )
+					if( puntero2 == puntero )
 						ultimosAceptacion.add(estado);
 					// Si este es el primer estado de aceptación detectado en esta fase,
 					// se actualiza el puntero y borra la lista, para añadir el primer estado.
 					else{
-						puntero2 = i;
+						puntero2 = puntero;
 						ultimosAceptacion.clear();
 						ultimosAceptacion.add(estado);
 					}
@@ -283,6 +286,7 @@ public class Lexer {
 		ArrayList<Token> altokens = new ArrayList<Token>();
 		Token token = nextToken();
 		while( token != null ){
+			//Test.print(token);
 			altokens.add(token);
 			token = nextToken();
 		}

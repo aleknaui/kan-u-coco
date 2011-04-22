@@ -1,24 +1,33 @@
-COMPILER Aritmetica    
+COMPILER MyCOCOR
 
-CHARACTERS 
+CHARACTERS
 
-letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-digit = "0123456789"
+letter= "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz"
+digit= "0123456789"
+
+cr = CHR(13)
+lf = CHR(10)
 tab = CHR(9)
-eol = CHR(10)
+ignore = cr+lf+tab
+comillas = CHR(34)
+stringletter = ANY-comillas-ignore
 
-KEYWORDS
-
-while = "while".
-do = "do".
-if = "if".
-switch = "switch".
+operadores ="+-=()[]{}|.<>"
+MyANY = ANY-operadores
 
 TOKENS
 
 ident = letter{letter|digit} EXCEPT KEYWORDS.
-number = digit{digit}.
+string = comillas(stringletter){stringletter}(comillas).
+
+char = "'"["/"]letter"'".
+charnumber = "CHR("digit{digit}")".
+charinterval = "CHR("digit{digit}")""..""CHR("digit{digit}")".
+
+nontoken = MyANY.
+startcode = "(.".
+endcode = ".)".
 
 PRODUCTIONS
 
-END Aritmetica.
+END MyCOCOR.
