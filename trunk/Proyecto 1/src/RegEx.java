@@ -12,14 +12,14 @@ public class RegEx {
 	// Constantes
 	// --------------------------------------------------------------------------------
 	
-	public final static char OR = (char) -5;//'|';
-	public final static char CONCAT = (char) -6;//'.';
-	public final static char KLEENE = (char) -7;//'*';
+	public final static char OR = (char) -5;//*/'|';
+	public final static char CONCAT = (char) -6;//*/'.';
+	public final static char KLEENE = (char) -7;//*/'*';
 	public final static char POSITIVA = (char) -8;//'+';
 	public final static char PREGUNTA = (char) -9;//'?';
 	public final static char EPSILON = (char) -10;//(char)127;//'e';
-	public final static char OPEN_PARENTHESIS = (char) -11;//'(';
-	public final static char CLOSE_PARENTHESIS = (char) -12;//')';
+	public final static char OPEN_PARENTHESIS = (char) -11;//*/'(';
+	public final static char CLOSE_PARENTHESIS = (char) -12;//*/')';
 
 	// --------------------------------------------------------------------------------
 	// Atributos

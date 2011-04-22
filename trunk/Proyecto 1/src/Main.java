@@ -94,7 +94,7 @@ public class Main {
 		try{
 			regex = new RegEx( cadenaRegex );
 			// Prueba para verificar que los nuevos caracteres reservados funcionen
-			regex = new RegEx(RegEx.OPEN_PARENTHESIS + "|" + RegEx.OR + "|" + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + ".||" + RegEx.OPEN_PARENTHESIS + "." + RegEx.OR + "|" + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE);
+			// regex = new RegEx(RegEx.OPEN_PARENTHESIS + "|" + RegEx.OR + "|" + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + ".||" + RegEx.OPEN_PARENTHESIS + "." + RegEx.OR + "|" + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE);
 			AFN thompson = new AFN( regex );
 			AFD directo = new AFD( regex );
 			AFD subconjuntos = new AFD( thompson );
