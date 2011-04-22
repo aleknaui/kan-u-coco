@@ -410,6 +410,18 @@ public class AFD {
 		return retorno;
 	}
 	
+	public ArrayList<Estado> darEstados(){
+		return estados;
+	}
+	
+	public ArrayList<Transicion> darTransiciones(){
+		return transiciones;
+	}
+	
+	public RegEx darRegex(){
+		return regex;
+	}
+	
 	@Override
 	public String toString(){
 		
