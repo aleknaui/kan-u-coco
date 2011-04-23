@@ -47,6 +47,30 @@ public class Token {
 		return lexema;
 	}
 	
+	/**
+	 * Indica si el token representa al tipo indicado como parámetro
+	 * @param t El tipo que se desea verificar
+	 * @return true Si el token es del tipo indicado. false Si no lo es.
+	 */
+	public boolean esTipo(String t){
+		return tipo.equals(t);
+	}
+	
+	/**
+	 * Indica si el lexema es igual a la cadena indicada
+	 * @param l La cadena con que se quiere comparar
+	 * @return true Si el lexema es igual a la cadena. false Si no lo es.
+	 */
+	public boolean lexemaEs(String l){
+		return lexema.equals(l);
+	}
+	
+	@Override
+	public boolean equals( Object o ){
+		Token t = (Token) o;
+		return tipo.equals(t.tipo) && lexema.equals(t.lexema);
+	}
+	
 	@Override
 	public String toString(){
 		return "[" + tipo + ", " + lexema + "]";

@@ -11,9 +11,12 @@ tab = CHR(9)
 ignore = cr+lf+tab
 comillas = CHR(34)
 stringletter = ANY-comillas-ignore
-
 operadores ="+-=()[]{}|.<>"
 MyANY = ANY-operadores
+
+KEYWORDS
+
+coso = "coso"
 
 TOKENS
 
@@ -28,6 +31,6 @@ nontoken = MyANY.
 startcode = "(.".
 endcode = ".)".
 
-PRODUCTIONS
+#PRODUCTIONS
 
 END MyCOCOR.

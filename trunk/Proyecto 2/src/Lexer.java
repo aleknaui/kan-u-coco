@@ -83,7 +83,7 @@ public class Lexer {
 	 */
 	public void addToken( String nombre, String regexs ) throws Exception{
 		
-		// Test.print(nombre + " = " + regexs);
+		//Test.print(nombre + " = " + regexs);
 		
 		// Se crea AFD que reconoce al token.
 		RegEx regex = new RegEx(regexs);
@@ -213,7 +213,7 @@ public class Lexer {
 		
 		// Almacena el/los último(s) estado(s) de aceptación que encontró 
 		ArrayList<Estado> ultimosAceptacion = new ArrayList<Estado>();
-		
+		String noToken = "";
 		// Almacena los punteros que servirán para obtener el lexema de mayor largo posible.
 		int puntero0 = puntero;
 		int puntero2 = -1;
@@ -221,6 +221,7 @@ public class Lexer {
 		int[] S = cerraduraEpsilon( new int[] {estados.indexOf( darEstadoInicial() )} );
 		for( puntero = puntero; puntero < cadena.length(); puntero++ ){
 			char c = cadena.charAt(puntero);
+			noToken += c;
 			//Test.print("'" + c + "'");
 			S = cerraduraEpsilon( mueve( S, c ) );
 			// Si alguno de los estados en los que se encuentra es de aceptación,
@@ -246,8 +247,10 @@ public class Lexer {
 			if( S.length == 0 )break;
 		}
 		
+		int linea = cadena.substring(0, puntero).length() - cadena.substring(0,puntero).replaceAll("\n", "").length() + 1;
+		
 		// Si no se llegó a ningún estado de aceptación, se tira una excepción
-		if( puntero2 == -1 || ultimosAceptacion.isEmpty() ) throw new NoHayTokenException();
+		if( puntero2 == -1 || ultimosAceptacion.isEmpty() ) throw new NoHayTokenException(linea,noToken);
 		// Si se llegó a algún estado de aceptación, se verifica que sea Keyword, Token o
 		// Whitespace.
 		else{
@@ -270,7 +273,7 @@ public class Lexer {
 						puntero = puntero2+1;
 						return nextToken();
 					}
-					else throw new NoHayTokenException();
+					else throw new NoHayTokenException(linea, noToken);
 				}
 			}
 		}
@@ -447,8 +450,8 @@ public class Lexer {
 	class NoHayTokenException extends Exception{
 		private static final long serialVersionUID = 1715114051188122042L;
 
-		public NoHayTokenException(){
-			super();
+		public NoHayTokenException( int linea, String cadena ){
+			super("No se encontró un Token para la cadena \"" + cadena + "\" en la línea " + linea);
 		}
 	}
 	
