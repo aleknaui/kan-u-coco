@@ -24,11 +24,16 @@ public class Test {
 	// Métodos
 	// --------------------------------------------------------------------------------
 	
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args){
 		
 		long tiempoInicial = System.currentTimeMillis();
-		
-		new CocolReader( "test.ATG" );
+		try{
+		CocolReader cr = new CocolReader( "test.ATG" );
+		cr.verificarInicio();
+		cr.leerCharacters();
+		} catch(Exception e){
+			print(e.getMessage());
+		}
 		
 		Test.print( "Tiempo de ejecución: " + (System.currentTimeMillis() - tiempoInicial) + " ms" );
 		

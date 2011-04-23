@@ -131,7 +131,6 @@ public class RegEx {
 	 * @param regex La representación en cadena de la expresión regular.
 	 */
 	public RegEx(String regex) throws Exception{
-		
 		alfabeto = new ArrayList<Character>();
 		//print( "Inicial: " + regex );
 		// Agrega las concatenaciones implícitas y convierte a postfix
