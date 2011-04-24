@@ -16,6 +16,8 @@ public class Test {
 	// Atributos
 	// --------------------------------------------------------------------------------
 	
+	static boolean debug = true;
+	
 	// --------------------------------------------------------------------------------
 	// Constructores
 	// --------------------------------------------------------------------------------
@@ -30,9 +32,11 @@ public class Test {
 		try{
 		CocolReader cr = new CocolReader( "test.ATG" );
 		cr.verificarInicio();
-		cr.leerCharacters();
+		cr.generarCharacters();
+		cr.generarKeywords();
 		} catch(Exception e){
-			print(e.getMessage());
+			Test.print(e.getMessage());
+			e.printStackTrace();
 		}
 		
 		Test.print( "Tiempo de ejecución: " + (System.currentTimeMillis() - tiempoInicial) + " ms" );
@@ -40,10 +44,12 @@ public class Test {
 	}
 	
 	public static void print(Object o){
-		System.out.println(o);
+		if( debug )
+			System.out.println(o);
 	}
 	public static void print(){
-		System.out.println();
+		if( debug )
+			System.out.println();
 	}
 
 }

@@ -158,7 +158,7 @@ public class Lexer {
 	 * @param regexs La expresión regular que describe el whitespace.
 	 * @throws Exception Por error de la expresión regular.
 	 */
-	public void setWhitespace( String regexs ) throws Exception{
+	public void addWhitespace( String regexs ) throws Exception{
 		// Se crea AFD que reconoce al whitespace.
 		RegEx regex = new RegEx(regexs);
 		AFD afd = new AFD( regex ).minimizar();
