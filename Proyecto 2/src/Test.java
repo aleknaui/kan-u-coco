@@ -1,3 +1,4 @@
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
@@ -26,14 +27,11 @@ public class Test {
 	// Métodos
 	// --------------------------------------------------------------------------------
 	
-	public static void main(String[] args){
+	public static void main(String[] args)throws Exception{
 		
 		long tiempoInicial = System.currentTimeMillis();
 		try{
 		CocolReader cr = new CocolReader( "test.ATG" );
-		cr.verificarInicio();
-		cr.generarCharacters();
-		cr.generarKeywords();
 		} catch(Exception e){
 			Test.print(e.getMessage());
 			e.printStackTrace();
