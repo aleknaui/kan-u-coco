@@ -87,6 +87,7 @@ public class CocolReader {
 		lexer.addWhitespace(" ");
 		lexer.addWhitespace("\n");
 		lexer.addWhitespace("\t");
+		lexer.addWhitespace("\r");
 		lexer.addWhitespace(COMMENT);
 		// Lee el archivo y lo analiza
 		FileReader reader = new FileReader( path );
@@ -242,9 +243,14 @@ public class CocolReader {
 			writer.println("\t// Método Main");
 			writer.println("\t// --------------------------------------------------------------------------------");
 			writer.println();
-			writer.println("\tpublic static void main(String[] args) throws Exception{");
+			writer.println("\tpublic static void main(String[] args){");
 			writer.println();
+			writer.println("\ttry{");
 			writer.println("\t\tnew " + nombreProy + "Lexer();");
+			writer.println("\t} catch (Exception e){");
+			writer.println("\t\tTest.print(e.getMessage());");
+			writer.println("\t\tSystem.exit(ERROR);");
+			writer.println("\t}");
 			writer.println();
 			writer.println("\t}");
 			writer.println();
@@ -927,6 +933,10 @@ public class CocolReader {
 				Token[] cdef = chardef.toArray(new Token[ chardef.size() ]);
 				preArray.add( cdef );
 				preArray.remove(0);
+				/*for( Token[] tarray : preArray ){
+					for( Token t : tarray )
+						Test.print(t);
+				}*/
 				return preArray;
 			}
 			// Si es un ident seguido de igual, se empieza una nueva lista de Tokens
