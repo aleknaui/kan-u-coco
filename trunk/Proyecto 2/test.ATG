@@ -19,6 +19,9 @@ TOKENS
 ident = letter{letter|digit} EXCEPT KEYWORDS.
 number = digit{digit}.
 
+IGNORE ' '
+IGNORE CHR(10)
+
 PRODUCTIONS
 
 END Aritmetica.
