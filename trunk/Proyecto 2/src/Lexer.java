@@ -195,7 +195,6 @@ public class Lexer {
 	 */
 	public void asignarCadena( String cadena ){
 		assert cadena == null : "Ale... cuidado"; // Verifica que no se haya inicializado ya para que no loquee.
-		assert false == true;
 		
 		this.cadena = cadena;
 		puntero = 0;

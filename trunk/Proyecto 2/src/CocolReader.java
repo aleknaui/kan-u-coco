@@ -23,6 +23,8 @@ public class CocolReader {
 	private final static String CHAR = "" + '\'' + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 46 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + '\'';
 	private final static String CHR = "CHR(" + NUMBER + ")";
 	private final static String COMMENT = "" + '#' + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 46 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255  + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + '\n';
+	private final static String regex_attributes = "" + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 60 + (char) 46 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 46 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 46 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.OPEN_PARENTHESIS + (char) 46 + (char) 62 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS;
+	private final static String regex_semAction = "" + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 40 + (char) 46 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 46 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 46 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.OPEN_PARENTHESIS + RegEx.OPEN_PARENTHESIS + (char) 0 + RegEx.OR + (char) 1 + RegEx.OR + (char) 2 + RegEx.OR + (char) 3 + RegEx.OR + (char) 4 + RegEx.OR + (char) 5 + RegEx.OR + (char) 6 + RegEx.OR + (char) 7 + RegEx.OR + (char) 8 + RegEx.OR + (char) 9 + RegEx.OR + (char) 10 + RegEx.OR + (char) 11 + RegEx.OR + (char) 12 + RegEx.OR + (char) 13 + RegEx.OR + (char) 14 + RegEx.OR + (char) 15 + RegEx.OR + (char) 16 + RegEx.OR + (char) 17 + RegEx.OR + (char) 18 + RegEx.OR + (char) 19 + RegEx.OR + (char) 20 + RegEx.OR + (char) 21 + RegEx.OR + (char) 22 + RegEx.OR + (char) 23 + RegEx.OR + (char) 24 + RegEx.OR + (char) 25 + RegEx.OR + (char) 26 + RegEx.OR + (char) 27 + RegEx.OR + (char) 28 + RegEx.OR + (char) 29 + RegEx.OR + (char) 30 + RegEx.OR + (char) 31 + RegEx.OR + (char) 32 + RegEx.OR + (char) 33 + RegEx.OR + (char) 34 + RegEx.OR + (char) 35 + RegEx.OR + (char) 36 + RegEx.OR + (char) 37 + RegEx.OR + (char) 38 + RegEx.OR + (char) 39 + RegEx.OR + (char) 40 + RegEx.OR + (char) 41 + RegEx.OR + (char) 42 + RegEx.OR + (char) 43 + RegEx.OR + (char) 44 + RegEx.OR + (char) 45 + RegEx.OR + (char) 47 + RegEx.OR + (char) 48 + RegEx.OR + (char) 49 + RegEx.OR + (char) 50 + RegEx.OR + (char) 51 + RegEx.OR + (char) 52 + RegEx.OR + (char) 53 + RegEx.OR + (char) 54 + RegEx.OR + (char) 55 + RegEx.OR + (char) 56 + RegEx.OR + (char) 57 + RegEx.OR + (char) 58 + RegEx.OR + (char) 59 + RegEx.OR + (char) 60 + RegEx.OR + (char) 61 + RegEx.OR + (char) 62 + RegEx.OR + (char) 63 + RegEx.OR + (char) 64 + RegEx.OR + (char) 65 + RegEx.OR + (char) 66 + RegEx.OR + (char) 67 + RegEx.OR + (char) 68 + RegEx.OR + (char) 69 + RegEx.OR + (char) 70 + RegEx.OR + (char) 71 + RegEx.OR + (char) 72 + RegEx.OR + (char) 73 + RegEx.OR + (char) 74 + RegEx.OR + (char) 75 + RegEx.OR + (char) 76 + RegEx.OR + (char) 77 + RegEx.OR + (char) 78 + RegEx.OR + (char) 79 + RegEx.OR + (char) 80 + RegEx.OR + (char) 81 + RegEx.OR + (char) 82 + RegEx.OR + (char) 83 + RegEx.OR + (char) 84 + RegEx.OR + (char) 85 + RegEx.OR + (char) 86 + RegEx.OR + (char) 87 + RegEx.OR + (char) 88 + RegEx.OR + (char) 89 + RegEx.OR + (char) 90 + RegEx.OR + (char) 91 + RegEx.OR + (char) 92 + RegEx.OR + (char) 93 + RegEx.OR + (char) 94 + RegEx.OR + (char) 95 + RegEx.OR + (char) 96 + RegEx.OR + (char) 97 + RegEx.OR + (char) 98 + RegEx.OR + (char) 99 + RegEx.OR + (char) 100 + RegEx.OR + (char) 101 + RegEx.OR + (char) 102 + RegEx.OR + (char) 103 + RegEx.OR + (char) 104 + RegEx.OR + (char) 105 + RegEx.OR + (char) 106 + RegEx.OR + (char) 107 + RegEx.OR + (char) 108 + RegEx.OR + (char) 109 + RegEx.OR + (char) 110 + RegEx.OR + (char) 111 + RegEx.OR + (char) 112 + RegEx.OR + (char) 113 + RegEx.OR + (char) 114 + RegEx.OR + (char) 115 + RegEx.OR + (char) 116 + RegEx.OR + (char) 117 + RegEx.OR + (char) 118 + RegEx.OR + (char) 119 + RegEx.OR + (char) 120 + RegEx.OR + (char) 121 + RegEx.OR + (char) 122 + RegEx.OR + (char) 123 + RegEx.OR + (char) 124 + RegEx.OR + (char) 125 + RegEx.OR + (char) 126 + RegEx.OR + (char) 127 + RegEx.OR + (char) 128 + RegEx.OR + (char) 129 + RegEx.OR + (char) 130 + RegEx.OR + (char) 131 + RegEx.OR + (char) 132 + RegEx.OR + (char) 133 + RegEx.OR + (char) 134 + RegEx.OR + (char) 135 + RegEx.OR + (char) 136 + RegEx.OR + (char) 137 + RegEx.OR + (char) 138 + RegEx.OR + (char) 139 + RegEx.OR + (char) 140 + RegEx.OR + (char) 141 + RegEx.OR + (char) 142 + RegEx.OR + (char) 143 + RegEx.OR + (char) 144 + RegEx.OR + (char) 145 + RegEx.OR + (char) 146 + RegEx.OR + (char) 147 + RegEx.OR + (char) 148 + RegEx.OR + (char) 149 + RegEx.OR + (char) 150 + RegEx.OR + (char) 151 + RegEx.OR + (char) 152 + RegEx.OR + (char) 153 + RegEx.OR + (char) 154 + RegEx.OR + (char) 155 + RegEx.OR + (char) 156 + RegEx.OR + (char) 157 + RegEx.OR + (char) 158 + RegEx.OR + (char) 159 + RegEx.OR + (char) 160 + RegEx.OR + (char) 161 + RegEx.OR + (char) 162 + RegEx.OR + (char) 163 + RegEx.OR + (char) 164 + RegEx.OR + (char) 165 + RegEx.OR + (char) 166 + RegEx.OR + (char) 167 + RegEx.OR + (char) 168 + RegEx.OR + (char) 169 + RegEx.OR + (char) 170 + RegEx.OR + (char) 171 + RegEx.OR + (char) 172 + RegEx.OR + (char) 173 + RegEx.OR + (char) 174 + RegEx.OR + (char) 175 + RegEx.OR + (char) 176 + RegEx.OR + (char) 177 + RegEx.OR + (char) 178 + RegEx.OR + (char) 179 + RegEx.OR + (char) 180 + RegEx.OR + (char) 181 + RegEx.OR + (char) 182 + RegEx.OR + (char) 183 + RegEx.OR + (char) 184 + RegEx.OR + (char) 185 + RegEx.OR + (char) 186 + RegEx.OR + (char) 187 + RegEx.OR + (char) 188 + RegEx.OR + (char) 189 + RegEx.OR + (char) 190 + RegEx.OR + (char) 191 + RegEx.OR + (char) 192 + RegEx.OR + (char) 193 + RegEx.OR + (char) 194 + RegEx.OR + (char) 195 + RegEx.OR + (char) 196 + RegEx.OR + (char) 197 + RegEx.OR + (char) 198 + RegEx.OR + (char) 199 + RegEx.OR + (char) 200 + RegEx.OR + (char) 201 + RegEx.OR + (char) 202 + RegEx.OR + (char) 203 + RegEx.OR + (char) 204 + RegEx.OR + (char) 205 + RegEx.OR + (char) 206 + RegEx.OR + (char) 207 + RegEx.OR + (char) 208 + RegEx.OR + (char) 209 + RegEx.OR + (char) 210 + RegEx.OR + (char) 211 + RegEx.OR + (char) 212 + RegEx.OR + (char) 213 + RegEx.OR + (char) 214 + RegEx.OR + (char) 215 + RegEx.OR + (char) 216 + RegEx.OR + (char) 217 + RegEx.OR + (char) 218 + RegEx.OR + (char) 219 + RegEx.OR + (char) 220 + RegEx.OR + (char) 221 + RegEx.OR + (char) 222 + RegEx.OR + (char) 223 + RegEx.OR + (char) 224 + RegEx.OR + (char) 225 + RegEx.OR + (char) 226 + RegEx.OR + (char) 227 + RegEx.OR + (char) 228 + RegEx.OR + (char) 229 + RegEx.OR + (char) 230 + RegEx.OR + (char) 231 + RegEx.OR + (char) 232 + RegEx.OR + (char) 233 + RegEx.OR + (char) 234 + RegEx.OR + (char) 235 + RegEx.OR + (char) 236 + RegEx.OR + (char) 237 + RegEx.OR + (char) 238 + RegEx.OR + (char) 239 + RegEx.OR + (char) 240 + RegEx.OR + (char) 241 + RegEx.OR + (char) 242 + RegEx.OR + (char) 243 + RegEx.OR + (char) 244 + RegEx.OR + (char) 245 + RegEx.OR + (char) 246 + RegEx.OR + (char) 247 + RegEx.OR + (char) 248 + RegEx.OR + (char) 249 + RegEx.OR + (char) 250 + RegEx.OR + (char) 251 + RegEx.OR + (char) 252 + RegEx.OR + (char) 253 + RegEx.OR + (char) 254 + RegEx.OR + (char) 255 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.CLOSE_PARENTHESIS + RegEx.KLEENE + RegEx.OPEN_PARENTHESIS + (char) 46 + (char) 41 + RegEx.CLOSE_PARENTHESIS + RegEx.CLOSE_PARENTHESIS;
 	
 	/** Esta constante no es para la definición de Tokens, sino para que el reader no tenga que generar código con cada aparición de ANY */
 	private final static String ANY = "" + (char) 0 + (char) 1 + (char) 2 + (char) 3 + (char) 4 + (char) 5 + (char) 6 + (char) 7 + (char) 8 + (char) 9 + (char) 10 + (char) 11 + (char) 12 + (char) 13 + (char) 14 + (char) 15 + (char) 16 + (char) 17 + (char) 18 + (char) 19 + (char) 20 + (char) 21 + (char) 22 + (char) 23 + (char) 24 + (char) 25 + (char) 26 + (char) 27 + (char) 28 + (char) 29 + (char) 30 + (char) 31 + (char) 32 + (char) 33 + (char) 34 + (char) 35 + (char) 36 + (char) 37 + (char) 38 + (char) 39 + (char) 40 + (char) 41 + (char) 42 + (char) 43 + (char) 44 + (char) 45 + (char) 46 + (char) 47 + (char) 48 + (char) 49 + (char) 50 + (char) 51 + (char) 52 + (char) 53 + (char) 54 + (char) 55 + (char) 56 + (char) 57 + (char) 58 + (char) 59 + (char) 60 + (char) 61 + (char) 62 + (char) 63 + (char) 64 + (char) 65 + (char) 66 + (char) 67 + (char) 68 + (char) 69 + (char) 70 + (char) 71 + (char) 72 + (char) 73 + (char) 74 + (char) 75 + (char) 76 + (char) 77 + (char) 78 + (char) 79 + (char) 80 + (char) 81 + (char) 82 + (char) 83 + (char) 84 + (char) 85 + (char) 86 + (char) 87 + (char) 88 + (char) 89 + (char) 90 + (char) 91 + (char) 92 + (char) 93 + (char) 94 + (char) 95 + (char) 96 + (char) 97 + (char) 98 + (char) 99 + (char) 100 + (char) 101 + (char) 102 + (char) 103 + (char) 104 + (char) 105 + (char) 106 + (char) 107 + (char) 108 + (char) 109 + (char) 110 + (char) 111 + (char) 112 + (char) 113 + (char) 114 + (char) 115 + (char) 116 + (char) 117 + (char) 118 + (char) 119 + (char) 120 + (char) 121 + (char) 122 + (char) 123 + (char) 124 + (char) 125 + (char) 126 + (char) 127 + (char) 128 + (char) 129 + (char) 130 + (char) 131 + (char) 132 + (char) 133 + (char) 134 + (char) 135 + (char) 136 + (char) 137 + (char) 138 + (char) 139 + (char) 140 + (char) 141 + (char) 142 + (char) 143 + (char) 144 + (char) 145 + (char) 146 + (char) 147 + (char) 148 + (char) 149 + (char) 150 + (char) 151 + (char) 152 + (char) 153 + (char) 154 + (char) 155 + (char) 156 + (char) 157 + (char) 158 + (char) 159 + (char) 160 + (char) 161 + (char) 162 + (char) 163 + (char) 164 + (char) 165 + (char) 166 + (char) 167 + (char) 168 + (char) 169 + (char) 170 + (char) 171 + (char) 172 + (char) 173 + (char) 174 + (char) 175 + (char) 176 + (char) 177 + (char) 178 + (char) 179 + (char) 180 + (char) 181 + (char) 182 + (char) 183 + (char) 184 + (char) 185 + (char) 186 + (char) 187 + (char) 188 + (char) 189 + (char) 190 + (char) 191 + (char) 192 + (char) 193 + (char) 194 + (char) 195 + (char) 196 + (char) 197 + (char) 198 + (char) 199 + (char) 200 + (char) 201 + (char) 202 + (char) 203 + (char) 204 + (char) 205 + (char) 206 + (char) 207 + (char) 208 + (char) 209 + (char) 210 + (char) 211 + (char) 212 + (char) 213 + (char) 214 + (char) 215 + (char) 216 + (char) 217 + (char) 218 + (char) 219 + (char) 220 + (char) 221 + (char) 222 + (char) 223 + (char) 224 + (char) 225 + (char) 226 + (char) 227 + (char) 228 + (char) 229 + (char) 230 + (char) 231 + (char) 232 + (char) 233 + (char) 234 + (char) 235 + (char) 236 + (char) 237 + (char) 238 + (char) 239 + (char) 240 + (char) 241 + (char) 242 + (char) 243 + (char) 244 + (char) 245 + (char) 246 + (char) 247 + (char) 248 + (char) 249 + (char) 250 + (char) 251 + (char) 252 + (char) 253 + (char) 254 + (char) 255;
@@ -43,6 +45,18 @@ public class CocolReader {
 	private HashMap<String, String> keywords;
 	/** Lista de elementos que causan Whitespace */
 	private ArrayList<String> whitespace;
+	
+	// -------------------------------------------------------------------------------- 
+	// Proyecto 3
+	
+	/** Hashmap que contiene los tokens que corresponden a la función PRIMERO de una producción */
+	private HashMap<String, ArrayList<Token>> primero;
+	/** Lista que contiene todas las definiciones de Producciones */
+	private ArrayList<Token[]> prodDefs;
+	/** Lista de terminales especificados junto con las producciones */
+	private HashMap<String, String> terminales;
+	/** Lista con todos los métodos de las producciones */
+	private ArrayList<String> producciones;
 	
 	// --------------------------------------------------------------------------------
 	// Constructores
@@ -65,7 +79,7 @@ public class CocolReader {
 		lexer.addKeyword("EXCEPT KEYWORDS",	"EXCEPT KEYWORDS");
 		lexer.addKeyword("IGNORE", "IGNORE");
 		lexer.addKeyword("PRODUCTIONS", "PRODUCTIONS");
-		lexer.addKeyword("ANY", "ANY");
+		//lexer.addKeyword("ANY", "ANY");
 		lexer.addKeyword("ABRE_PARENTESIS","(");
 		lexer.addKeyword("CIERRA_PARENTESIS",")");
 		lexer.addKeyword("ABRE_KLEENE", "{");
@@ -82,6 +96,8 @@ public class CocolReader {
 		lexer.addToken("string",  STRING);
 		lexer.addToken("char", CHAR);
 		lexer.addToken("chr", CHR);
+		lexer.addToken("semAction", regex_semAction);
+		lexer.addToken("attributes", regex_attributes);
 		//lexer.addToken("comment", COMMENT);
 		//lexer.addWhitespace(" " + RegEx.OR + "\n" + RegEx.OR + "\t" + RegEx.OR + RegEx.OPEN_PARENTHESIS + COMMENT + RegEx.CLOSE_PARENTHESIS);
 		lexer.addWhitespace(" ");
@@ -107,17 +123,30 @@ public class CocolReader {
 		tokenExcept = new HashMap<String, String>();
 		keywords = new HashMap<String, String>();
 		whitespace = new ArrayList<String>();
+		primero = new HashMap<String, ArrayList<Token>>();
+		terminales = new HashMap<String, String>();
+		producciones = new ArrayList<String>();
 		
 		characters.put( "ANY" , ANY );
 		
+		/*
+		for( Token t : tokens )
+			Test.print(t);
+		*/
+		
 		// Interpreta el archivo y genera el código.
+		///*
 		verificarInicio();
 		generarCharacters();
 		generarKeywords();
 		generarTokens();
 		generarWhitespace();
 		generarProyecto();
-		generarCodigo();
+		generarProducciones();
+		generarLexer();
+		generarParser();
+		//*/
+		//obtenerProductionDefs(); // TODO Aquí va todo lo nuevo ()
 	}
 	
 	// --------------------------------------------------------------------------------
@@ -127,7 +156,7 @@ public class CocolReader {
 	/**
 	 * Genera el archivo .java que realizará el análisis léxico
 	 */
-	private void generarCodigo(){
+	private void generarLexer(){
 		String nombreProy = tokens[1].darLexema();
 		String path = ".." + File.separator + nombreProy + File.separator + "src" + File.separator  + nombreProy + "Lexer.java";
 		File archivo = new File( path );
@@ -138,7 +167,7 @@ public class CocolReader {
 			writer.println("import java.io.*;");
 			writer.println("import javax.swing.*;");
 			writer.println();
-			writer.println("public class " + nombreProy + "Lexer extends JFrame{");
+			writer.println("public class " + nombreProy + "Lexer extends Lexer{");
 			writer.println();
 			writer.println("\t// --------------------------------------------------------------------------------");
 			writer.println("\t// Constantes de las Keywords");
@@ -164,6 +193,15 @@ public class CocolReader {
 				}
 			writer.println();
 			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println("\t// Constantes de los Terminales");
+			writer.println("\t// --------------------------------------------------------------------------------");
+				it = terminales.entrySet().iterator();
+				while (it.hasNext()) {
+				Map.Entry e = (Map.Entry)it.next();
+					writer.println("\tprivate final static String terminal_" + e.getKey() + " = \"\" + " + e.getValue() + ";");
+				}
+			writer.println();
+			writer.println("\t// --------------------------------------------------------------------------------");
 			writer.println("\t// Constantes de Whitespace");
 			writer.println("\t// --------------------------------------------------------------------------------");
 				for( int i = 0; i < whitespace.size(); i++ ){
@@ -171,86 +209,38 @@ public class CocolReader {
 				}
 			writer.println();
 			writer.println("\t// --------------------------------------------------------------------------------");
-			writer.println("\t// Atributos");
-			writer.println("\t// --------------------------------------------------------------------------------");
-			writer.println("\tprivate Token[] tokens;");
-			writer.println();
-			writer.println("\t// --------------------------------------------------------------------------------");
 			writer.println("\t// Constructor");
 			writer.println("\t// --------------------------------------------------------------------------------");
 			writer.println();
-			writer.println("\tpublic " + nombreProy + "Lexer(  ) throws Exception{");
+			writer.println("\tpublic " + nombreProy + "Lexer(  ){");
 			writer.println();
-			writer.println("\t//Creación y preparación del Lexer");
-			writer.println("\tLexer lexer = new Lexer();");
+			writer.println("\t\t//Creación y preparación del Lexer");
+			writer.println("\t\tsuper();");
+			writer.println("\t\ttry{;");
 				it = tokenNoExcept.entrySet().iterator();
 				while (it.hasNext()) {
 				Map.Entry e = (Map.Entry)it.next();
-					writer.println("\tlexer.addToken(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
+					writer.println("\t\taddToken(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
 				}
 				it = keywords.entrySet().iterator();
 				while (it.hasNext()) {
 				Map.Entry e = (Map.Entry)it.next();
-					writer.println("\tlexer.addKeyword(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
+					writer.println("\t\taddKeyword(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
 				}
 				it = tokenExcept.entrySet().iterator();
 				while (it.hasNext()) {
 				Map.Entry e = (Map.Entry)it.next();
-					writer.println("\tlexer.addToken(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
+					writer.println("\t\taddToken(\"" + e.getKey() + "\", " + "regex_" + e.getKey() + ");");
 				}
 				for( int i = 0; i < whitespace.size(); i++ ){
-					writer.println("\tlexer.addWhitespace(" + "whitespace_" + i + ");");
+					writer.println("\t\taddWhitespace(" + "whitespace_" + i + ");");
 				}
-			writer.println();
-			writer.println("\tsetVisible(false);");
-			writer.println("\tString path = \"\";");
-			writer.println("\tlong tiempoInicial = 0;");
-			writer.println("\tsetDefaultCloseOperation(DISPOSE_ON_CLOSE);");
-			writer.println("\tTest.print(\"Seleccione el archivo que desea analizar\");");
-			writer.println("\tJFileChooser chooser = new JFileChooser();");
-			writer.println("\tchooser.setCurrentDirectory(new File(\".\"));");
-			writer.println("\tchooser.setDialogTitle(\" " + nombreProy + " - Analizador Léxico \");");
-			writer.println("\tchooser.setFileSelectionMode(JFileChooser.FILES_ONLY);");
-			writer.println("\tchooser.setMultiSelectionEnabled(false);");
-			writer.println("\tif (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){");
-			writer.println("\t\tTest.print(\"Se ha seleccionado el archivo \" + chooser.getSelectedFile().getAbsolutePath());");
-			writer.println("\t\tTest.print(\"Leyendo archivo...\");");
-			writer.println("\t\tpath = chooser.getSelectedFile().getAbsolutePath();");
-			writer.println("\t\ttiempoInicial = System.currentTimeMillis();");
-			writer.println("\t} else{ Test.print(\"Usted no seleccionó ningún archivo. Adiós.\"); dispose(); return;}");
-			writer.println();
-			writer.println("\tFileReader reader = new FileReader( path );");
-			writer.println("\tint charActual = reader.read();");
-			writer.println("\tString cadena = \"\";");
-			writer.println("\twhile( charActual > 0 ){");
-			writer.println("\t\tcadena += (char) charActual;");
-			writer.println("\t\tcharActual = reader.read();");
-			writer.println("\t}");
-			writer.println("\tlexer.asignarCadena(cadena);");
-			writer.println();
-			writer.println("\tTest.print(\"Analizando...\");");
-			writer.println("\ttokens = lexer.tokenize();");
-			writer.println("\tTest.print();");
-			writer.println("\tTest.print(\"Tokens Obtenidos: \");");
-			writer.println("\tfor( Token t : tokens ) Test.print('\\t' + t.toString());");
-			writer.println("\tTest.print(\"Tiempo de ejecución: \" + (System.currentTimeMillis() - tiempoInicial) + \" ms\");");
-			writer.println("\tdispose();");
-			writer.println("\treturn;");
-			writer.println();
-			writer.println("\t}");
-			writer.println();
-			writer.println("\t// --------------------------------------------------------------------------------");
-			writer.println("\t// Método Main");
-			writer.println("\t// --------------------------------------------------------------------------------");
-			writer.println();
-			writer.println("\tpublic static void main(String[] args){");
-			writer.println();
-			writer.println("\ttry{");
-			writer.println("\t\tnew " + nombreProy + "Lexer();");
-			writer.println("\t} catch (Exception e){");
-			writer.println("\t\tTest.print(e.getMessage());");
-			writer.println("\t\tSystem.exit(ERROR);");
-			writer.println("\t}");
+				it = terminales.entrySet().iterator();
+				while (it.hasNext()) {
+					Map.Entry e = (Map.Entry)it.next();
+						writer.println("\t\taddToken(\"" + e.getKey() + "\", " + "terminal_" + e.getKey() + ");");
+					}
+			writer.println("\t\t} catch(Exception e){e.printStackTrace();}");
 			writer.println();
 			writer.println("\t}");
 			writer.println();
@@ -261,6 +251,91 @@ public class CocolReader {
 			e.printStackTrace();
 		}
 			
+	}
+	
+	private void generarParser(){
+		String nombreProy = tokens[1].darLexema();
+		String path = ".." + File.separator + nombreProy + File.separator + "src" + File.separator  + nombreProy + "Parser.java";
+		File archivo = new File( path );
+		
+		try {
+			PrintWriter writer = new PrintWriter( archivo );
+			
+			writer.println("import java.io.*;");
+			writer.println();
+			writer.println("public class " + nombreProy + "Parser{");
+			writer.println();
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println("\t// Atributos");
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println();
+			writer.println("\tprivate " + nombreProy + "Lexer lexer;");
+			writer.println("\tprivate Token LastToken;");
+			writer.println("\tprivate Token LAToken;");
+			writer.println();
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println("\t// Constructor");
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println();
+			writer.println("\tpublic " + nombreProy + "Parser( String path ) throws IOException{");
+			writer.println("\t\tlexer = new " + nombreProy + "Lexer();");
+			writer.println("\t\tFileReader reader = new FileReader( path );");
+			writer.println("\t\tint charActual = reader.read();");
+			writer.println("\t\tString cadena = \"\";");
+			writer.println("\t\twhile( charActual != -1 ){");
+			writer.println("\t\t\tcadena += (char)charActual;");
+			writer.println("\t\t\tcharActual = reader.read();");
+			writer.println("\t\t}");
+			writer.println("\t\tlexer.asignarCadena(cadena);");
+			writer.println();
+			writer.println("\t\tLAToken = null;");
+			writer.println("\t\tGet();");
+			writer.println("\t\t" + prodDefs.get(0)[0].darLexema() + "();");
+			writer.println("\t}");
+			writer.println();
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println("\t// Métodos");
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println();
+			writer.println("\tpublic void Expect( String tipo ){");
+			writer.println("\t\tif( LAToken.esTipo(tipo) ) Get();");
+			writer.println("\t\telse SynError(tipo);");
+			writer.println("\t}");
+			writer.println();
+			writer.println("\tpublic void Get(){");
+			writer.println("\t\tLastToken = LAToken;");
+			writer.println("\t\ttry{");
+			writer.println("\t\t\tLAToken = lexer.nextToken();");
+			writer.println("\t\t}catch(Exception e){ e.printStackTrace(); }");
+			writer.println("\t}");
+			writer.println();
+			
+			for( String metodo : producciones ){
+				for( String linea : metodo.split("\n") ){
+					writer.println("\t"+linea);
+				}
+				writer.println();
+			}
+			
+			writer.println("\tpublic void SynError(String tipo){");
+			writer.println("\t\tTest.print( \"Error: \" + tipo + \" expected.\");");
+			writer.println("\t}");
+			writer.println();
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println("\t// Método Main");
+			writer.println("\t// --------------------------------------------------------------------------------");
+			writer.println();
+			writer.println("\tpublic static void main(String[] args){");
+			writer.println("\t\ttry{");
+			writer.println("\t\t\tnew " + nombreProy + "Parser( \"\" ); //TODO ingresar path manualmente");
+			writer.println("\t\t} catch( IOException e ){ e.printStackTrace(); }");
+			writer.println("\t}");
+			writer.println("}");
+			writer.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -662,6 +737,311 @@ public class CocolReader {
 		}
 	}
 	
+	private void generarProducciones() throws Exception{
+		prodDefs = obtenerProductionDefs();
+		
+		for( Token[] definicion : prodDefs ){	
+			verificarParentesis( definicion );
+		}
+		
+		generarTerminales();
+		
+		for( int i = 0; i < prodDefs.size(); i++ ){
+			//Test.print("Producción: " + prodDefs.get(0)[0].darLexema());
+			ArrayList<Token> first = calcularPrimero(prodDefs.get(i));
+			primero.put(prodDefs.get(i)[0].darLexema(), first);
+			//Test.print("---");
+		}
+		
+		/*
+		for( String s : producciones ){
+			Test.print(s);
+		}*/
+		/*
+		Iterator it = primero.entrySet().iterator();
+		while (it.hasNext()) {
+		Map.Entry e = (Map.Entry)it.next();
+			Test.print( "Primero(" + e.getKey() + ") = " + e.getValue());
+		}
+		//*/
+		for( int i = 0; i < prodDefs.size(); i++ ){
+			String metodo = generarMetodoProduction(prodDefs.get(i));
+			producciones.add(metodo);
+		}
+		
+		Test.print(this.darPrimero(new Token("ident", "Factor") ));
+	}
+	
+	private String generarMetodoProduction(Token[] produccion){
+		String metodo = "";
+		
+		metodo += "public void " + produccion[0].darLexema() + "(){\n";
+		
+		metodo += generarMetodo( obtenerLadoDerecho(produccion).toArray( new Token[obtenerLadoDerecho(produccion).size()] ) );
+		metodo += "\t//PRIMERO(" + produccion[0].darLexema() + ") = { ";
+		for( Token t : primero.get(produccion[0].darLexema()) )
+			metodo += t.darLexema() + ", ";
+		metodo += "}";
+		
+		metodo += "\n}";
+		
+		return metodo;
+	}
+	
+	private String generarMetodo( Token[] rightSide ){
+		String metodo = "";
+		return metodo;
+	}
+	
+	/**
+	 * Hace un sublist
+	 * @param in Array inicial
+	 * @param inicio indice inicial (inclusivo)
+	 * @param fin Indice final (no inclusivo)
+	 * @return Lista cortada
+	 */
+	private Token[] trim( Token[] in, int inicio, int fin ){
+		Token[] retorno = new Token[ fin-inicio ];
+		for( int i = inicio; i < fin; i++ )
+			retorno[i-inicio] = in[i];
+		return retorno;
+	}
+	
+	/**
+	 * Obtiene PRIMERO para la producción ingresada y lo almacena en el HashMap.
+	 * @param def La definición de la producción
+	 */
+	private ArrayList<Token> calcularPrimero( Token[] def ){
+		// Si ya se calculó primero debido a la recursión, se retorna.
+		if( primero.containsKey(def[0].darLexema()) ) return primero.get(def[0].darLexema());
+		
+		// Si no, se empieza a calcular... X_X
+		
+		// Obtiene el lado derecho de la producción, ignorando semActions y Attributes.
+		ArrayList<Token> right = obtenerLadoDerecho(def);
+		
+		/*
+		Test.print("-----Right-----");
+		for( Token t : right ) Test.print(t);
+		//*/
+		ArrayList<Token> first = primeroExpr(right.toArray(new Token[right.size()]));
+		
+		//for( Token t : first ) Test.print(t);
+		return first;
+	}
+	
+	/**
+	 * Obtiene el lado derecho de la producción, ignorando semActions y Attributes.
+	 * @param def La definición de la producción
+	 * @return El lado derecho de la producción
+	 */
+	private ArrayList<Token> obtenerLadoDerecho( Token[] def ){
+		ArrayList<Token> right = new ArrayList<Token>();
+		boolean esRight = false;
+		for( Token t : def ){
+			if( esRight ){
+				if( ! t.esTipo("semAction") && ! t.esTipo("attributes") && ! t.esTipo("PUNTO") )
+					right.add(t);
+			}
+			if( t.esTipo("IGUAL") ) esRight = true;
+		}
+		return right;
+	}
+	
+	/**
+	 * Obtiene el PRIMERO de una secuencia de Tokens, que no es necesariamente de una
+	 * producción completa.
+	 * @param def Secuencia de Tokens a analizar. Lado derecho de una producción.
+	 * @return Los tokens con los que es posible que empiece esa definición.
+	 */
+	private ArrayList<Token> primeroExpr( Token[] def ){
+		
+		//for( Token t : def ) Test.print(t);
+		
+		ArrayList<Token> first = new ArrayList<Token>();
+		
+		// Obtiene los punteros de los OR's
+		int nivel = 0;
+		int nivelInicial = 0;
+		for( int i = 0; i < def.length; i++ ){
+			if( def[i].esTipo("ABRE_PARENTESIS") || def[i].esTipo("ABRE_KLEENE") || def[i].esTipo("ABRE_OPC") )
+				nivelInicial++;
+			else
+				break;
+		}
+		ArrayList<Integer> punteros = new ArrayList<Integer>();
+		punteros.add(0);
+		for( int i = 0; i < def.length; i++ ){
+			Token t = def[i];
+			if( t.esTipo("ABRE_PARENTESIS") || t.esTipo("ABRE_KLEENE") || t.esTipo("ABRE_OPC") ) nivel++;
+			else if( t.esTipo("CIERRA_PARENTESIS") || t.esTipo("CIERRA_KLEENE") || t.esTipo("CIERRA_OPC")) nivel--;
+			else if( t.esTipo("OR") && nivel == nivelInicial ) punteros.add(i+1);
+			if( nivel < nivelInicial ) break;
+		}
+		
+		// Si hay más de un puntero, se suman los diferentes primeros de cada subset
+		
+		if( punteros.size() != 1 ){
+			for( int i = 0; i < punteros.size(); i++ ){
+				int p = punteros.get(i);
+				int next = i+1 < punteros.size() ? punteros.get(i+1) : def.length+1;
+				Token[] exp = new Token[next-p-1];
+				for( int j = p; j < next-1; j++ )
+					exp[j-p] = def[j];
+				for( Token t : primeroExpr(exp) )
+					if( ! first.contains(t) )
+						first.add(t);
+			}
+		}
+		
+		// Si sólo hay un puntero (0) se mira si hay Kleene o Opc. Si lo hay,
+		// lo quita y vuelve a evaluar PRIMERO. Si no hay K|O, es un caso base.
+		// Por salud mental se come los paréntesis.
+		else{
+			//Test.print("Un puntero");
+			// Caso K|O
+			nivel = 0;
+			nivelInicial = 0;
+			boolean casoBase = false;
+			for( int i = 0; i < def.length; i++ ){
+				Token t = def[i];
+				if( !casoBase ){
+					//Test.print(i + ": " + t);
+					if( esTerminal(t) != -1 ) casoBase = true;
+					else if( t.esTipo("ABRE_KLEENE") || t.esTipo("ABRE_OPC") ){
+						//Test.print("Es K|O");
+						String cierra = t.esTipo("ABRE_KLEENE") ? "CIERRA_KLEENE" : "CIERRA_OPC";
+						String otroCierra = t.esTipo("ABRE_KLEENE") ? "CIERRA_OPC" : "CIERRA_KLEENE";
+						
+						for( int j = i+1; j < def.length; j++ ){
+							t = def[j];
+							if( t.esTipo("ABRE_PARENTESIS") || t.esTipo("ABRE_KLEENE") || t.esTipo("ABRE_OPC") )
+								nivel++;
+							else if( t.esTipo("CIERRA_PARENTESIS") || t.esTipo(otroCierra) )
+								nivel--;
+							else if( t.esTipo(cierra) ){
+								if( nivel == nivelInicial ){
+									Token[] exp = new Token[j-i-1];
+									for( int k = i+1; k < j; k++ )
+										exp[k-i-1] = def[k];
+									for( Token token : primeroExpr(exp) )
+										if( ! first.contains(token) )
+											first.add(token);
+									exp = new Token[def.length-j-1];
+									for( int k = j+1; k < def.length; k++ )
+										exp[k-j-1] = def[k];
+									for( Token token : primeroExpr(exp) )
+										if( ! first.contains(token) )
+											first.add(token);
+								}
+								else
+									nivel--;
+							}
+						}
+						break;
+					}
+				}
+			}
+			// Caso(s) base
+			if( casoBase ){
+				for( Token t : def ){
+					if( esTerminal(t) == 1 ){
+						if( ! first.contains(t) )
+							first.add(t);
+						break;
+					}
+					else if( esTerminal(t) == 0 ){
+						for( Token[] tokens : prodDefs ){
+							if( tokens[0].darLexema().equals(t.darLexema()) ){
+								for( Token token : calcularPrimero(tokens) )
+									if( ! first.contains(token) )
+										first.add(token);
+								break;
+							}
+						}
+						//Test.print("Primero(" + t.darLexema() + ")");
+						break;
+					}
+				}
+			}
+		}
+		
+		return first;
+	}
+	
+	/**
+	 * Genera expresiones regulares para todos los terminales
+	 * definidos en las producciones. Los almacena como Tokens
+	 * para que no haya errores léxicos por uso de terminales.
+	 */
+	private void generarTerminales(){
+		for( Token[] def : prodDefs ){
+			for( Token t : def ){
+				if( t.esTipo("string") ){
+					for( int i = 1; i < t.darLexema().length()-1; i++ ){
+						String nombreTerminal = "" + (int) t.darLexema().charAt(i);
+						if( ! terminales.containsKey(nombreTerminal) ){
+							String regexTerminal = "(char) " + nombreTerminal;
+							terminales.put(nombreTerminal, regexTerminal);
+						}
+					}
+				}
+			}
+		}
+		/*
+		Iterator it = terminales.entrySet().iterator();
+		while (it.hasNext()) {
+		Map.Entry e = (Map.Entry)it.next();
+			Test.print( e.getKey() + " = \"\" + " + e.getValue() + ";");
+		}
+		//*/
+	}
+	
+	/**
+	 * Obtiene las condiciones que utilizan el Lookahead.
+	 * @param t El Token para el cual se quieren desear las condiciones
+	 * @return La cadena que se le agrega al if o while, que contiene las condiciones que aceptan el token
+	 */
+	private String darPrimero( Token t ){
+		if( esTerminal(t) == 1 && t.esTipo("ident") ){
+			return "( LAToken.esTipo(\"" + t.darLexema() + "\") )";
+		}
+		else if( esTerminal(t) == 1 && t.esTipo("string") ){
+			String nombreTerminal = "" + (int)t.darLexema().charAt(1);
+			return "( LAToken.esTipo(\"terminal_" + nombreTerminal + "\") )";
+		}
+		else if( esTerminal(t) == 0 ){
+			String retorno = "";
+			for( Token token : primero.get(t.darLexema()) ){
+				retorno += " || ";
+				retorno += darPrimero(token);
+			}
+			//retorno.replace(" || ", "a");
+			retorno = retorno.substring(4);
+			retorno = "( " + retorno;
+			retorno += " )";
+			return retorno;
+		}
+		return null;
+	}
+	
+	/**
+	 * Método que indica si un token es un terminal, un no terminal u otro (como paréntesis, etc.)
+	 * @param t El token a evaluar
+	 * @return 1 Si el token es un terminal. 0 Si es un no terminal. -1 Si es de otro tipo.
+	 */
+	private int esTerminal( Token t ){
+		if( t.esTipo("string") ) return 1;
+		if( t.esTipo("ident") ){
+			if( tokenNoExcept.containsKey(t.darLexema()) ||
+					tokenExcept.containsKey(t.darLexema()) ||
+					keywords.containsKey(t.darLexema()))
+				return 1;
+			else return 0;
+		}
+		return -1;
+	}
+	
 	/**
 	 * Verifica que los paréntesis, corchetes y llaves estén balanceados en una cadena de Tokens.
 	 * @param expresion La cadena de tokens a analizar
@@ -925,9 +1305,9 @@ public class CocolReader {
 		 */
 		ArrayList<Token[]> preArray = new ArrayList<Token[]>();
 		ArrayList<Token> chardef = new ArrayList<Token>();
-		for( i = i; i < tokens.length; i++ ){
+		for( ; i < tokens.length; i++ ){
 			Token token = tokens[i];
-			Token next = tokens[i+1];
+			//Token next = tokens[i+1];
 			// Si ya se acabaron las definiciones de CHARACTER, se sale del ciclo
 			if( token.esTipo("PRODUCTIONS") || token.esTipo("END") ){
 				Token[] cdef = chardef.toArray(new Token[ chardef.size() ]);
@@ -951,6 +1331,90 @@ public class CocolReader {
 		return null; // Sanity check
 	}
 	
+	/**
+	 * Obtiene diferentes cadenas de tokens que definen las producciones
+	 * @return Un arreglo con todas las definiciones de producciones
+	 */
+	private ArrayList<Token[]> obtenerProductionDefs(){
+		
+		// Inicializa las definiciones
+		ArrayList<Token[]> prodDefs = new ArrayList<Token[]>();
+		
+		// Busca el inicio de las producciones. Si no lo encuentra,
+		// retorna vacío (no nulo).
+		int i = 0;
+		for( ; i < tokens.length ; i++ ){
+			Token t = tokens[i];
+			if( t.esTipo("PRODUCTIONS") ) break;
+			else if( t.esTipo("END") ) return prodDefs;
+		}
+		
+		// Empieza a obtener las diferentes producciones.
+		i++;
+		Token[] pdef;
+		ArrayList<Token> pdeftemp = new ArrayList<Token>();
+		for( ; i < tokens.length && !tokens[i].esTipo("END"); i++ ){
+			Token t = tokens[i];
+			//Test.print(t);
+			Token next = tokens[i+1];
+			
+			if( t.esTipo("ident") && next.esTipo("attributes") ){
+				Token next1 = tokens[i+2];
+				if( next1.esTipo("IGUAL") ){
+					// Guarda la definición anterior.
+					pdef = new Token[pdeftemp.size()];
+					pdef = pdeftemp.toArray(pdef);
+					prodDefs.add(pdef);
+					
+					// Crea la nueva definición.
+					pdeftemp.clear();
+					//pdeftemp.add(t);
+				} else if( next1.esTipo("semAction") ){
+					Token next2 = tokens[i+3];
+					if( next2.esTipo("IGUAL") ){
+						// Guarda la definición anterior.
+						pdef = new Token[pdeftemp.size()];
+						pdef = pdeftemp.toArray(pdef);
+						prodDefs.add(pdef);
+						
+						// Crea la nueva definición.
+						pdeftemp.clear();
+						//pdeftemp.add(t);
+					}
+				}
+			}
+			if( t.esTipo("ident") && next.esTipo("IGUAL") || next.esTipo("END") ){
+				
+				if( next.esTipo("END") )
+					pdeftemp.add(t);
+				
+				// Guarda la definición anterior.
+				pdef = new Token[pdeftemp.size()];
+				pdef = pdeftemp.toArray(pdef);
+				prodDefs.add(pdef);
+				
+				if( ! next.esTipo("END") ){
+					// Crea la nueva definición.
+					pdeftemp.clear();
+					pdeftemp.add(t);
+				}
+			}
+			else
+				pdeftemp.add(t);
+			//Test.print(tokens[i]);
+		}
+		
+		/*
+		for( Token[] def : prodDefs ){
+			Test.print("-----");
+			for( Token t : def ){
+				Test.print(t);
+			}
+		}
+		//*/
+		prodDefs.remove(0);
+		return prodDefs;
+	}
 	
 	/**
 	 * Excepción que se dispara si hay un error en la sintaxis de Cocol 
