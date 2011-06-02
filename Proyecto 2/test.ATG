@@ -1,28 +1,44 @@
-COMPILER Aritmetica    
+COMPILER Double
 
 CHARACTERS 
 
-letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 digit = "0123456789"
 tab = CHR(9)
 eol = CHR(10)
+blanco = eol+CHR(13)+tab+' '
+otro = "as"
 
 KEYWORDS
 
 while = "while".
 do = "do".
-if = "if".
-switch = "switch".
 
 TOKENS
 
-ident = letter{letter|digit} EXCEPT KEYWORDS.
 number = digit{digit}.
+decnumber = digit{digit}"."digit{digit}.
 
-IGNORE ' '
-IGNORE CHR(10)
+IGNORE blanco
 
 PRODUCTIONS
 
-END Aritmetica.
+Expr= {Stat";"}".".
 
+Stat = 	(.double value;.) Expression<.out value.> (.System.out.println("Resultado: "+value);.) .
+
+Expression<.out double result.> = (.double result1=0,result2= 0;.) Term<.out result1.>
+	{ "+"Term<.out result2.>	(.result1+=result2;.)
+	| "-"Term<.out result2.>	(.result1-=result2;.)
+	} (.result=result1;.)	.
+
+Term<.out double result.>=	(.double result1= 0,result2= 0;.)	Factor<.out result1.>
+	{ "*"Factor<.out result2.>	(.result1*=result2;.)
+	  | "/"Factor<.out result2.> (.result1/=result2;.)
+	} (.result=result1;.)	.
+
+Factor<.out double result.> =	(.double sign=1;.)	["-"(.sign = -1;.)]
+	(Number<.out result.> |"("Expression<.out result.>")")	(.result*=sign;.)	.
+
+Number<.out double result.> = (number|decnumber)(.result = Double.parseDouble(LastToken.value);.)	.
+
+END Double.
